@@ -11,24 +11,27 @@
 
   <body>
     <header class = 'd-flex p-4 bg-light sticky-top'>
-      <nav class = 'col-12'>
-        <div class = 'd-flex justify-content-end'>
+      <nav class = 'd-flex col-12'>
+        <div class = 'col-8'>
+          Logo
+        </div>
+        <div class = 'd-flex col justify-content-end'>
           <% if session[:current_user].nil? %>
-            <div class = 'col-3 font-weight-bold'><%= link_to  "LOG-IN", login_path %></div>
+            <div class = 'col font-weight-bold'><%= link_to  "LOG-IN", login_path %></div>
           <% else %>
-            <div class = 'col-3 font-weight-bold'>
+            <div class = 'col font-weight-bold'>
               <%= session[:current_user]['name'] if session[:current_user] %>   
             </div>
-            <div class = 'col-3'>
+            <div class = 'col font-weight-bold'>
               <%= link_to  "LOG-OUT", logout_path %>
             </div>
           <% end %>
-          <div class = 'col-3 font-weight-bold'><%= link_to  "REGISTER", new_user_path %></div>
+          <div class = 'col font-weight-bold'><%= link_to  "REGISTER", new_user_path %></div>
         </div>
       </nav>
     </header>
     <% flash.each do |type, msg| %>
-      <div class = 'p-3 mb-2 bg-light text-dark d-flex justify-content-center'>
+      <div class = 'p-3 mb-2 bg-warning text-dark d-flex justify-content-center'>
         <%= msg %>
       </div>
     <% end %>

@@ -21,8 +21,15 @@
  }
 
  nav a,
- a:visited
+ a:visited,
+ .btn-submit
  {
    color: #9a9691;
    text-transform: capitalize;
+ }
+
+ .btn-submit
+ {
+   background-color: #b7a28d;
+
  }
