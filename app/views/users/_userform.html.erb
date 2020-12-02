@@ -1,6 +1,8 @@
 <div class = 'form'>
   <%= form_for @user do |f| %>
-    <%= display_errors(@user) %>
+    <div class = 'errors'>
+      <%= display_errors(@user) %>
+    </div>
     <%= f.label :name, 'Name' %>
     <%= f.text_field :name %>
     <%= f.label :username, 'Username' %>

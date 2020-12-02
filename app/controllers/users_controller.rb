@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :user_loggedin?, only: %i[index show update]
   before_action :find_user, only: %i[show update]
 
-  include UsersHelper
   def new
     @user = User.new
   end
@@ -25,7 +24,7 @@ class UsersController < ApplicationController
       session[:current_user] = @user
       redirect_to user_path(@user), notice: 'User successfully created'
     else
-      redirect_to new_user_path, notice: 'User was not created'
+      render new_user_path, notice: 'User was not created'
     end
   end
 
