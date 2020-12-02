@@ -1,0 +1,1 @@
+# capstone_rails_lifestyle_articles
