@@ -4,4 +4,5 @@ class Article < ApplicationRecord
   validates :text, presence: :true,  length: { minimum: 100, maximum: 500 }
   
   belongs_to :author, class_name: 'User'
+  has_many :votes
 end
