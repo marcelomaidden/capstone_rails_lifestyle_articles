@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LifestyleArticle</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <nav class = 'd-flex'>
+        <div class = 'justify-content-end'>
+          <% if session[:current_user].nil? %>
+            <%= link_to  "Sign-in", login_path %>
+          <% else %>
+            <%= session[:current_user]['name'] if session[:current_user] %>   
+            <%= link_to  "Logout", logout_path %>
+          <% end %>
+          <%= link_to  "Sign-up", new_user_path %>
+        </div>
+      </nav>
+    </header>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
