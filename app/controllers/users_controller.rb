@@ -1,20 +1,17 @@
 class UsersController < ApplicationController
-  before_action :user_loggedin?, only: [:index, :show, :update]
-  before_action :find_user, only: [:show, :update]
+  before_action :user_loggedin?, only: %i[index show update]
+  before_action :find_user, only: %i[show update]
 
   include UsersHelper
   def new
     @user = User.new
   end
 
-  def index
-  end
+  def index; end
 
-  def show
-  end
+  def show; end
 
-  def update
-  end
+  def update; end
 
   def logout
     reset_session
@@ -34,8 +31,8 @@ class UsersController < ApplicationController
 
   def signin
     @user = User.find_by(username: params[:username])
-    if ! @user.nil?
-      session[:current_user] = @user 
+    if !@user.nil?
+      session[:current_user] = @user
       redirect_to '/'
     else
       redirect_to login_path, notice: 'Username not found'
@@ -57,9 +54,7 @@ class UsersController < ApplicationController
   end
 
   def user_loggedin?
-    if session[:current_user].nil?
-      redirect_to login_path
-    end
+    redirect_to login_path if session[:current_user].nil?
   end
 
   def signin_params
