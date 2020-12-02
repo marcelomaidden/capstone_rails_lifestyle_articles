@@ -1,6 +1,7 @@
-<h1>Login</h1>
-<%= form_tag '/signin' do %>
-   <%= label_tag :username%>
-   <%= text_field_tag :username %>
-   <%= submit_tag "Login"%>
-<%end%>
+<div class = 'form w-50 mx-auto mt-5 bg-light p-3'>
+   <%= form_tag '/signin', :class => 'form-signin' do %>
+      <h1 class = 'd-flex justify-content-center'>Login</h1>
+      <%= text_field_tag(:username, '', class: 'form-control', placeHolder: 'Username') %>
+      <%= submit_tag "Login", class: 'btn btn-lg btn-primary btn-block mt-4'%>
+   <%end%>
+</div>

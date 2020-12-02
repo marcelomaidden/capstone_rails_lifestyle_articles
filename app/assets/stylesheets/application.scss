@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+ body {
+   background-color: #4d423c;
+ }
+
+ nav a,
+ a:visited
+ {
+   color: #9a9691;
+   text-transform: capitalize;
+ }

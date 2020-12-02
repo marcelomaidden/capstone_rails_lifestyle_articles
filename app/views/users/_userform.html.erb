@@ -1,12 +1,11 @@
-<div class = 'form'>
-  <%= form_for @user do |f| %>
+<div class = 'form w-50 mx-auto mt-5 bg-light p-3'>
+  <h1 class = 'd-flex justify-content-center'>Create a user</h1>
+  <%= form_for @user, :html => {:class => 'form-signin'} do |f| %>
     <div class = 'errors'>
       <%= display_errors(@user) %>
     </div>
-    <%= f.label :name, 'Name' %>
-    <%= f.text_field :name %>
-    <%= f.label :username, 'Username' %>
-    <%= f.text_field :username %>
-    <%= f.submit %>
+    <%= f.text_field :name, class: 'form-control mt-2', placeHolder: 'Name' %>
+    <%= f.text_field :username, class: 'form-control mt-2', placeHolder: 'Username' %>
+    <%= f.submit class: 'btn btn-lg btn-primary btn-block mt-4'  %>
   <% end %>
 </div>
