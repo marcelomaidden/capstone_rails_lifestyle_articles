@@ -14,27 +14,25 @@
  *= require_self
  */
 
- @import "bootstrap";
+@import "bootstrap";
 
- body {
-   background-color: #4d423c;
- }
+body {
+  background-color: #4d423c;
+}
 
- nav a,
- a:visited,
- .btn-submit,
- nav
- {
-   color: #9a9691;
-   text-transform: capitalize;
-   font-size: 0.8rem;
- }
+nav a,
+a:visited,
+.btn-submit,
+nav {
+  color: #9a9691;
+  text-transform: capitalize;
+  font-size: 0.8rem;
+}
 
- .btn-submit
- {
-   background-color: #b7a28d;
- }
+.btn-submit {
+  background-color: #b7a28d;
+}
 
- .orange-link a {
-   color: #fb8c47;
- }
+.orange-link a {
+  color: #fb8c47;
+}
