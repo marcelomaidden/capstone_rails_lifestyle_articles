@@ -23,7 +23,9 @@
             <div class = 'col font-weight-bold'><%= link_to  "LOG-IN", login_path %></div>
           <% else %>
             <div class = 'col font-weight-bold'>
-              <%= session[:current_user]['name'] if session[:current_user] %>   
+              <% if session[:current_user] %>
+                <%= link_to session[:current_user]['name'], user_path(session[:current_user]['id']) %>   
+              <% end %>
             </div>
             <div class = 'col font-weight-bold'>
               <%= link_to  "LOG-OUT", logout_path %>

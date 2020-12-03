@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get '/logout', to: 'users#logout'
   post '/signin', to: 'users#signin'
 
-  resources :users, only: [:new, :show, :update, :index, :create]
+  resources :users, only: [:new, :show, :update, :index, :create, :edit]
 end

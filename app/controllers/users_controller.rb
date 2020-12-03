@@ -1,20 +1,26 @@
 class UsersController < ApplicationController
   before_action :user_loggedin?, only: %i[index show update]
-  before_action :find_user, only: %i[show update]
+  before_action :find_user, only: %i[show update edit]
 
   def new
     @user = User.new
   end
 
-  def index; end
-
-  def show; end
-
-  def update; end
+  def index
+    @users = User.all.order(:name)
+  end
 
   def logout
     reset_session
     redirect_to login_path
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to users_path, notice: 'User successfully updated'
+    else
+      render user_path(@user), notice: 'An error ocurred while updating this user'
+    end
   end
 
   def create
