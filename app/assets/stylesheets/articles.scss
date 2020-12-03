@@ -3,18 +3,48 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .featured {
   display: grid;
-  grid-template-rows: 350px 100px;
+  grid-template-rows: 350px;
+  grid-gap: 0;
+  margin: 0;
 }
 
 .article-title {
   color: #fa6000;
-  position: absolute;
-  bottom: 50px;
+}
+
+.article-title,
+.article-title-mini {
+  bottom: 30px;
+}
+
+.article-text, 
+.article-title-mini {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 40ch;
 }
 
 .article-text {
-  position: absolute;
-  text-overflow: ellipsis;
   bottom: 10px;
-  font-size: 0.5em;
+  font-size: 0.6em;
+  max-width: 220ch;
+}
+
+.articles {
+  display: grid;
+  gap: 0;
+  grid-template-rows: 350px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .articles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .article-text {
+    max-width: 60ch;
+  }
 }

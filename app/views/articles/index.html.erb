@@ -1,15 +1,34 @@
 <main class = 'd-flex flex-column'>
   <section class = 'featured'>
     <article class = 'col-12'
-  style = "background: linear-gradient(to bottom, rgba(0,0,10,.1), rgba(0,0,70,.6)), no-repeat center/100%  url('<%= @most_voted.image if !@most_voted.nil? %>') ">
+  style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+  rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+  no-repeat center/100%  url('<%= @most_voted.image if !@most_voted.nil? %>') ">
       <div>
-        <span class = 'article-title font-weight-bold'>
+        <span class = 'article-title position-absolute font-weight-bold'>
           <%= @most_voted.title if ! @most_voted.nil? %>
-        </div>
-        <span class = 'article-text text-white font-weight-bold'>
+        </span>
+        <span class = 'article-text position-absolute text-white font-weight-bold'>
           <%= @most_voted.text if ! @most_voted.nil? %>
         </span>
       </div>
     </article>
+  </section>
+  <section class = 'articles'>
+    <% @articles.each do |article| %>
+      <div class = 'article-category p-2 position-relative'
+      style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+         rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+        no-repeat center/180%  url('<%= article.image %>')">
+        <ul class = 'd-flex list-unstyled'>
+          <% article.categories.each do |category| %>
+            <li class = 'pl-2'><%= category.name %></li>
+          <% end %>
+        </ul>
+        <span class = 'article-title-mini position-absolute'>
+          <%= article.title %>
+        </span>
+      </div>
+    <% end %>
   </section>
 </main>

@@ -10,11 +10,12 @@ class ArticlesController < ApplicationController
     
     if @article.save
       error = []
-      article_params['categories'].each do |category|
-        @article_category = ArticleCategory.new(category_id: category, article_id: @article.id)
-        if !@article_category.validate
-          error << @article_category.validate!
-        end
+      categories = article_params['categories'][1..]
+      categories.each do |category|
+          @article_category = ArticleCategory.create(category_id: category, article_id: @article.id)
+          if !@article_category.validate
+            error << @article_category.validate!
+          end
       end
 
       redirect_to articles_path, notice: error.any?
