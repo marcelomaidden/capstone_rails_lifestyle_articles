@@ -1,0 +1,12 @@
+  <% if session[:current_user].nil? %>
+    <li class = 'session-menu ul-session '><%= link_to  "LOG-IN", login_path%></li>
+  <% else %>
+      <% if session[:current_user] %>
+        <li class = 'session-menu ul-session '>
+          <%= link_to session[:current_user]['name'], user_path(session[:current_user]['id'])%>
+        </li>   
+      <% end %>
+      <li class = 'session-menu'><%= link_to  "LOG-OUT", logout_path%></li>
+  <% end %>
+  <li class = 'd-flex align-items-baseline session-menu'><span class = 'd-none d-md-flex px-1'>|</span></li>
+  <li class = 'session-menu'><%= link_to  "REGISTER", new_user_path%></li>

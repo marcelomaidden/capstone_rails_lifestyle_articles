@@ -1,0 +1,35 @@
+     <nav class = 'd-flex align-items-baseline'>
+        <div class = 'col-3 d-flex d-md-none position-absolute hamburguer-menu'>
+          <div class="pos-f-t">
+            <div class="navbar navbar-dark">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+            <div class="collapse" id="navbarToggleExternalContent">
+              <div class="p-4">
+                <ul class = 'list-unstyled align-items-baseline'>
+                  <%= render 'categories/categories' %>
+                  <%= render 'layouts/session' %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class = 'col-3 justify-content-end mx-auto'>
+          <%= link_to image_tag("logos/logo.png", class: 'logo'), root_path %>
+        </div>
+        <div class = 'col-4 font-weight-bold d-none d-md-flex'>
+          <ul class = 'list-unstyled d-flex align-items-baseline'>
+            <%= render 'categories/categories' %>
+          </ul>
+        </div>
+        <div class = 'd-none d-md-flex col-4 font-weight-bold justify-content-end align-content-baseline'>
+          <ul class = 'list-unstyled d-flex'>
+            <%= render 'layouts/session' %>
+          </ul>
+        </div>
+        <div class = 'col'>
+          <i class="fa fa-search text-gray float-right" style="font-size:20px"></i>
+        </div>
+      </nav>
