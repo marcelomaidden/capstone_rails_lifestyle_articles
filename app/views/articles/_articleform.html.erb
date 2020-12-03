@@ -1,0 +1,16 @@
+<div class = 'form w-50 mx-auto mt-5 bg-light p-3 rounded'>
+  <h1 class = 'd-flex justify-content-center'>Create an article</h1>
+  <%= form_for @article do |f| %>
+    <div class = 'errors'>
+      <%= display_errors(@article) %>
+    </div>
+    <%= f.text_field :title, class: 'form-control mt-2', placeHolder: 'title' %>
+    <%= f.text_area :text, cols: 20, rows: 10, 
+    class: 'form-control mt-2', placeHolder: 'text' %>
+    <%= f.text_field :image, class: 'form-control mt-2', placeHolder: 'image url' %>
+    <%= f.select(:categories, @categories.collect {|c| [ c.name, c.id ] }, 
+    { :prompt => "Please select one or more categories"}, 
+    { :multiple => true, :size => 5, :class => 'form-control mt-2'  }) %>
+    <%= f.submit class: 'btn btn-lg btn-submit text-dark btn-block mt-4'  %>
+  <% end %>
+</div>

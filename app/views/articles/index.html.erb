@@ -1,2 +1,15 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<main class = 'd-flex flex-column'>
+  <section class = 'featured'>
+    <article class = 'col-12'
+  style = "background: linear-gradient(to bottom, rgba(0,0,10,.1), rgba(0,0,70,.6)), no-repeat center/100%  url('<%= @most_voted.image if !@most_voted.nil? %>') ">
+      <div>
+        <span class = 'article-title font-weight-bold'>
+          <%= @most_voted.title if ! @most_voted.nil? %>
+        </div>
+        <span class = 'article-text text-white font-weight-bold'>
+          <%= @most_voted.text if ! @most_voted.nil? %>
+        </span>
+      </div>
+    </article>
+  </section>
+</main>

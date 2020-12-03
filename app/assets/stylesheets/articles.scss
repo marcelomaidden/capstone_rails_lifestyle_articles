@@ -1,3 +1,20 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.featured {
+  display: grid;
+  grid-template-rows: 350px 100px;
+}
+
+.article-title {
+  color: #fa6000;
+  position: absolute;
+  bottom: 50px;
+}
+
+.article-text {
+  position: absolute;
+  text-overflow: ellipsis;
+  bottom: 10px;
+  font-size: 0.5em;
+}
