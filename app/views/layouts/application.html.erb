@@ -10,10 +10,10 @@
   </head>
 
   <body>
-    <header class = 'container-fluid p-4 bg-light sticky-top'>
-      <nav class = 'd-flex'>
+    <header class = 'container-fluid p-4 sticky-top'>
+      <nav class = 'd-flex align-items-baseline'>
         <div class = 'col-3'>
-          Logo
+          <%= link_to image_tag("logos/logo.png", class: 'w-50'), root_path %>
         </div>
         <div class = 'col-6 font-weight-bold orange-link'>
           <%= link_to  "HOME", root_path %>
