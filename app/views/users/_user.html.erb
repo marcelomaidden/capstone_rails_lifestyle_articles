@@ -1,0 +1,9 @@
+<div class="card w-50 mx-auto mt-5">
+  <div class="card-header">
+    <h1><%= user.name %></h1>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= user.username %></p>
+    <%= link_to  "Edit", edit_user_path(user) %>
+  </div>
+</div>
