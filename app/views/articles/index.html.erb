@@ -22,10 +22,13 @@
         no-repeat center/180%  url('<%= article.image %>')">
         <ul class = 'd-flex list-unstyled'>
           <% article.categories.each do |category| %>
-            <li class = 'pl-2'><%= category.name %></li>
+            <li class = 'pl-2'>
+              <%= link_to  category.name, article_path(category.id), 
+              class: 'text-white font-weight-bold' %>
+            </li>
           <% end %>
         </ul>
-        <span class = 'article-title-mini position-absolute'>
+        <span class = 'article-title-mini text-white position-absolute'>
           <%= article.title %>
         </span>
       </div>
