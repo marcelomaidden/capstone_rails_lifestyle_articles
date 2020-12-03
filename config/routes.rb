@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   post '/signin', to: 'users#signin'
 
   resources :users, only: [:new, :show, :update, :index, :create, :edit]
-  resources :categories, only: [:show]
+
+  resources :articles
+  resources :categories, only: [:show] do 
+    resources :articles
+  end
 end
