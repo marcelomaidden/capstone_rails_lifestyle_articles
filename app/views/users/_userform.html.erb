@@ -1,6 +1,6 @@
-<div class = 'form w-50 mx-auto mt-5 bg-light p-3'>
+<div class = 'form w-50 mx-auto mt-5 bg-light p-3 rounded'>
   <h1 class = 'd-flex justify-content-center'>Create a user</h1>
-  <%= form_for @user, :html => {:class => 'form-signin'} do |f| %>
+  <%= form_for @user do |f| %>
     <div class = 'errors'>
       <%= display_errors(@user) %>
     </div>

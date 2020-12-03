@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if !@user.nil?
       session[:current_user] = @user
-      redirect_to '/'
+      redirect_to root_path
     else
       redirect_to login_path, notice: 'Username not found'
     end

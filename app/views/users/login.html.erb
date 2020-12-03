@@ -1,5 +1,5 @@
-<div class = 'form w-50 mx-auto mt-5 bg-light p-3'>
-   <%= form_tag '/signin', :class => 'form-signin' do %>
+<div class = 'form w-50 mx-auto mt-5 bg-light p-3 rounded'>
+   <%= form_tag '/signin' do %>
       <h1 class = 'd-flex justify-content-center'>Login</h1>
       <%= text_field_tag(:username, '', class: 'form-control', placeHolder: 'Username') %>
       <%= submit_tag "Enter", class: 'btn btn-lg btn-submit text-dark btn-block mt-4'%>
