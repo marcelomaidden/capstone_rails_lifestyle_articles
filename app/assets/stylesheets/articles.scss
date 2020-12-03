@@ -34,7 +34,7 @@
 .articles {
   display: grid;
   gap: 0;
-  grid-template-rows: 350px;
+  grid-auto-rows: 350px;
   grid-template-columns: repeat(4, 1fr);
   margin: 0;
 }
