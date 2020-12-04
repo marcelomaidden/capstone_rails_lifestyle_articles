@@ -4,6 +4,8 @@
   </div>
   <div class="card-body">
     <p class="card-text"><%= user.username %></p>
-    <%= link_to  "Edit", edit_user_path(user) %>
+    <% if !session[:current_user].nil? && session[:current_user]['id'] == user.id %>
+      <%= link_to  "Edit", edit_user_path(user) %>
+    <% end %>
   </div>
 </div>
