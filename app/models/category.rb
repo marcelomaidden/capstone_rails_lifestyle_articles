@@ -6,4 +6,8 @@ class Category < ApplicationRecord
   has_many :articles, through: :article_categories, source: :article
 
   scope :priority_order, -> { order(:priority) }
+
+  def most_recent_article
+    articles.most_recents.limit(1)
+  end
 end

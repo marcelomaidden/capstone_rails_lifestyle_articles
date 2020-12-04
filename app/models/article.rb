@@ -10,4 +10,8 @@ class Article < ApplicationRecord
   has_many :categories, through: :article_categories, source: :category
 
   scope :most_voted, -> { order(:title).first }
+
+  def self.most_recents
+    Article.order(created_at: :desc)
+  end
 end
