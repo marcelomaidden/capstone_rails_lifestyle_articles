@@ -40,38 +40,38 @@ class ArticlesController < ApplicationController
     articles_by_user_id
 
     articles_by_category
-    
-    articles_common
 
+    articles_common
   end
 
   private
 
   def articles_common
-    if Article.all.blank?
-      @most_voted = nil
-    else
-      @most_voted = Article.most_voted.nil? ? nil : Article.most_voted
-    end
+    @most_voted = if Article.all.blank?
+                    nil
+                  else
+                    Article.most_voted.nil? ? nil : Article.most_voted
+                  end
   end
 
   def articles_by_user_id
-    if params[:user_id]
-      @articles = User.find(params[:user_id]).articles
-      @most_voted = if @articles.most_voted.blank?
-                      nil
-                    else
-                      @articles.most_voted
-                    end
-    end
+    return unless params[:user_id]
+
+    @articles = User.find(params[:user_id]).articles
+    @most_voted = if @articles.most_voted.blank?
+                    nil
+                  else
+                    @articles.most_voted
+                  end
   end
 
   def articles_by_category
-    if params[:category_id]
-      @articles = Category.find(params[:category_id]).articles.most_recents
-      redirect_to root_path, notice: 'There are not articles on this category yet' unless !@articles.blank?
-    end
+    return unless params[:category_id]
+
+    @articles = Category.find(params[:category_id]).articles.most_recents
+    redirect_to root_path, notice: 'There are not articles on this category yet' if @articles.blank?
   end
+
   def article_params
     params.require(:article).permit(:title, :text, :image, categories: [])
   end
