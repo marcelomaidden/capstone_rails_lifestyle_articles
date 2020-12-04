@@ -44,10 +44,12 @@ class ArticlesController < ApplicationController
         redirect_to root_path, notice: 'There are not articles on this category yet'
       end
       @most_voted = @articles.most_voted.nil? ? nil : @articles.most_voted
+    elsif Article.all.nil? || Article.all.empty?
+      @most_voted = nil
     else
       @most_voted = Article.most_voted.nil? ? nil : Article.most_voted
-      @articles = Article.all
     end  
+    @articles = Article.all
   end
 
   private

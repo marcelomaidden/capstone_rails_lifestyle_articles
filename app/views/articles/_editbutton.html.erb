@@ -1,4 +1,5 @@
-<% if !session[:current_user].nil? && session[:current_user]['id'] == article.author.id %>
+<% if !session[:current_user].nil? && !article.nil? &&
+session[:current_user]['id'] == article.author.id %>
   <span>
     <%= form_for article, :url => edit_article_path(article), 
     html: { method: 'get' } do |f|%>
