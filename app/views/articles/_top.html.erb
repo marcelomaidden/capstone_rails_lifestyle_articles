@@ -1,0 +1,15 @@
+<section class = 'featured position-relative'>
+  <article
+style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+no-repeat center/110%  url('<%= article.image if !article.nil? %>') ">
+    <div>
+        <%= link_to  article.title, article_path(article.id), 
+        class: 'article-title article-link position-absolute font-weight-bold' %>
+      <span class = 'article-text position-absolute text-white font-weight-bold'>
+        <%= article.text if ! article.nil? %>
+      </span>
+      <%= render 'editbutton', article: article %>
+    </div>
+  </article>
+</section>

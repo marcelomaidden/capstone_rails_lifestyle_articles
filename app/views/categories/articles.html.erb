@@ -1,0 +1,38 @@
+<section class = 'category-articles'>
+  <% @articles.each do |article| 
+  count = 0 %>
+    <% if !article.nil? %>
+      <div class = "p-2"
+        style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+        rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+        no-repeat center/auto  url('<%= article.image %>')">
+      </div>
+      <div class = "p-2 position-relative"
+      style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+        rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+        repeat center/1%  
+        url('https://images.tcdn.com.br/img/editor/up/670388/estilotexarabescolosangosestampa.jpg')">
+        <ul class = 'd-flex list-unstyled'>
+            <li class = 'ml-2 orange-link'>
+              <%= link_to  @category.name, category_articles_path(@category.id), 
+            class: 'font-weight-bold' %>
+            </li>
+        </ul>
+        <div class = 'article-title-mini'>
+          <%= render 'editbutton', article: article, class: 'ml-3' %>
+          <h6 class = ' ml-2 mt-2 text-dark font-weight-bolder'>
+            <%= article.title %>
+          </h6>
+        </div>
+        <div>
+          <p class = 'ml-2 category-article-text'><%= article.text %></p>
+          <p ml-2 category-article-text>
+            <%= link_to  "Read more...", article_path(article.id),
+            class: 'ml-2 article-link read-more position-absolute' %>
+          </p>
+        </div>
+      </div>
+      <% count+=1 %>
+    <% end %>
+  <% end %>
+</section>

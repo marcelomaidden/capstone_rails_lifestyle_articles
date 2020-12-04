@@ -67,9 +67,10 @@ class ArticlesController < ApplicationController
 
   def articles_by_category
     return unless params[:category_id]
-
-    @articles = Category.find(params[:category_id]).articles.most_recents
+    @category = Category.find(params[:category_id])
+    @articles = @category.articles.most_recents
     redirect_to root_path, notice: 'There are not articles on this category yet' if @articles.blank?
+    render 'categories/articles' unless @articles.blank?
   end
 
   def article_params
