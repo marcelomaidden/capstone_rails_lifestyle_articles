@@ -38,6 +38,12 @@ class ArticlesController < ApplicationController
     if params[:user_id]
       @articles = User.find(params[:user_id]).articles
       @most_voted = @articles.most_voted.nil? ? nil : @articles.most_voted
+    elsif params[:category_id]
+      @articles = Category.find(params[:category_id]).articles
+      if @articles.empty?
+        redirect_to root_path, notice: 'There are not articles on this category yet'
+      end
+      @most_voted = @articles.most_voted.nil? ? nil : @articles.most_voted
     else
       @most_voted = Article.most_voted.nil? ? nil : Article.most_voted
       @articles = Article.all

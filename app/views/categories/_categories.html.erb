@@ -1,4 +1,5 @@
 <li class = 'orange-link px-1 category-list'><%= link_to  "HOME", root_path %></li>
 <% Category.all.priority_order.each do |c| %>
-  <li class='category-list'><%= link_to  c.name, category_path(c.id) %></li>
+  <li class='category-list'><%= link_to  c.name, 
+  category_articles_path(c.id) %></li>
 <% end %>
