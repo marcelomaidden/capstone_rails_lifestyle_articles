@@ -20,6 +20,10 @@ body {
   background-color: #4d423c;
 }
 
+main {
+  min-height: 600px;
+}
+
 a,
 a:visited,
 .btn-submit,
@@ -71,7 +75,7 @@ header {
   footer {
     margin-top: 40px;
   }
-  
+
   .logo {
     position: absolute;
     left: 140px;

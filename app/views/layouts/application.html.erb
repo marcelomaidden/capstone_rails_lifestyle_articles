@@ -20,7 +20,9 @@
         <%= msg %>
       </div>
     <% end %>
-    <%= yield %>
+    <main class = 'd-flex flex-column mh-100'>
+     <%= yield %>
+    </main>
     <%= render 'layouts/footer' %>
   </body>
 </html>

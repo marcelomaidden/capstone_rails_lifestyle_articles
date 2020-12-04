@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :find_categories, only: [:new, :create]
+  before_action :find_categories, only: %i[new create]
   before_action :user_loggedin?, only: %i[update create new edit]
-  before_action :is_mine?, only: %i[edit update]
-  before_action :find_article, only: [:show, :edit, :update]
+  before_action :mine?, only: %i[edit update]
+  before_action :find_article, only: %i[show edit update]
 
   def new
     @article = Article.new
@@ -10,14 +10,14 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(title: article_params['title'], text: article_params['text'],
-      author_id: session[:current_user]['id'], image: article_params['image'])
-    
+                           author_id: session[:current_user]['id'], image: article_params['image'])
+
     if @article.save
       add_categories
       redirect_to articles_path, notice: 'Article successfully created'
     else
       render new_article_path
-    end    
+    end
   end
 
   def update
@@ -37,23 +37,41 @@ class ArticlesController < ApplicationController
   def index
     @categories = Category.priority_order
 
-    if params[:user_id]
-      @articles = User.find(params[:user_id]).articles
-      @most_voted = @articles.most_voted.blank?  ? 
-      nil : @articles.most_voted
-    elsif params[:category_id]
-      @articles = Category.find(params[:category_id]).articles.most_recents
-      if @articles.empty?
-        redirect_to root_path, notice: 'There are not articles on this category yet'
-      end
-    elsif Article.all.blank?
-      @most_voted = nil
-    else
-      @most_voted =Article.most_voted.nil? ? nil : Article.most_voted
-    end  
+    articles_by_user_id
+
+    articles_by_category
+    
+    articles_common
+
   end
 
   private
+
+  def articles_common
+    if Article.all.blank?
+      @most_voted = nil
+    else
+      @most_voted = Article.most_voted.nil? ? nil : Article.most_voted
+    end
+  end
+
+  def articles_by_user_id
+    if params[:user_id]
+      @articles = User.find(params[:user_id]).articles
+      @most_voted = if @articles.most_voted.blank?
+                      nil
+                    else
+                      @articles.most_voted
+                    end
+    end
+  end
+
+  def articles_by_category
+    if params[:category_id]
+      @articles = Category.find(params[:category_id]).articles.most_recents
+      redirect_to root_path, notice: 'There are not articles on this category yet' unless !@articles.blank?
+    end
+  end
   def article_params
     params.require(:article).permit(:title, :text, :image, categories: [])
   end
@@ -75,19 +93,17 @@ class ArticlesController < ApplicationController
     error = []
     categories = article_params['categories'][1..]
     categories.each do |category|
-        @article_category = ArticleCategory.create(category_id: category, article_id: @article.id)
-        if !@article_category.validate
-          error << @article_category.validate!
-        end
+      @article_category = ArticleCategory.create(category_id: category, article_id: @article.id)
+      error << @article_category.validate! unless @article_category.validate
     end
 
     redirect_to articles_path, notice: error if error.any?
   end
 
-  def is_mine?
+  def mine?
     @article = Article.find(params[:id])
-    if @article.author.id != session[:current_user]['id']
-      redirect_to root_path, notice: "User is not allowed to edit this article"
-    end
+    return false unless @article.author.id != session[:current_user]['id']
+
+    redirect_to root_path, notice: 'User is not allowed to edit this article'
   end
 end
