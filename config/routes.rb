@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get '/logout', to: 'users#logout'
   post '/signin', to: 'users#signin'
 
-  resources :users, only: [:new, :show, :update, :index, :create, :edit]
+  resources :users, only: [:new, :show, :update, :index, :create, :edit] do
+    resources :articles
+  end
 
   resources :articles
   resources :categories, only: [:show] do 

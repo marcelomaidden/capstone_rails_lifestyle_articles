@@ -11,6 +11,7 @@
         <span class = 'article-text position-absolute text-white font-weight-bold'>
           <%= @most_voted.text if ! @most_voted.nil? %>
         </span>
+        <%= render 'editbutton', article: @most_voted %>
       </div>
     </article>
   </section>
@@ -31,6 +32,7 @@
         <span class = 'article-title-mini text-white position-absolute'>
           <%= article.title %>
         </span>
+        <%= render 'editbutton', article: article %>
       </div>
     <% end %>
   </section>
