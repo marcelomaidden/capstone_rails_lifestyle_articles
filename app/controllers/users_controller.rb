@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :user_loggedin?, only: %i[index show update]
   before_action :find_user, only: %i[show update edit]
+  before_action :myself?, only: %i[update edit]
 
   def new
     @user = User.new
@@ -64,5 +65,12 @@ class UsersController < ApplicationController
 
   def signin_params
     params.require(:user).permit(:username)
+  end
+
+  def myself?
+    @user = User.find(params[:id])
+    return false unless @user.id != session[:current_user]['id']
+
+    redirect_to root_path, notice: 'Current user is not allowed to edit this user'
   end
 end

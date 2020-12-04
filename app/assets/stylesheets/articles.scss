@@ -1,0 +1,63 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.featured {
+  display: grid;
+  grid-auto-rows: 350px;
+  grid-gap: 0;
+  margin: 0;
+}
+
+.article-title {
+  color: #fa6000;
+}
+
+.article-title,
+.article-title-mini {
+  bottom: 30px;
+}
+
+.article-text,
+.article-title-mini {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 40ch;
+}
+
+.article-text {
+  bottom: 10px;
+  font-size: 0.6em;
+  max-width: 220ch;
+}
+
+.article-title,
+.article-text {
+  left: 10px;
+}
+
+.articles {
+  display: grid;
+  gap: 0;
+  grid-auto-rows: 300px;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0;
+}
+
+.articles li {
+  border-bottom: 3px solid yellow;
+}
+
+@media (max-width: 767px) {
+  .featured {
+    grid-auto-rows: 400px;
+  }
+
+  .articles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .article-text {
+    max-width: 60ch;
+  }
+}

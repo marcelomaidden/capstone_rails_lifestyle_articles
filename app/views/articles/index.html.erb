@@ -1,0 +1,38 @@
+<section class = 'featured position-relative'>
+  <article
+style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+no-repeat center/110%  url('<%= @most_voted.image if !@most_voted.nil? %>') ">
+    <div>
+      <span class = 'article-title position-absolute font-weight-bold'>
+        <%= @most_voted.title if ! @most_voted.nil? %>
+      </span>
+      <span class = 'article-text position-absolute text-white font-weight-bold'>
+        <%= @most_voted.text if ! @most_voted.nil? %>
+      </span>
+      <%= render 'editbutton', article: @most_voted %>
+    </div>
+  </article>
+</section>
+<section class = 'articles'>
+  <% @categories.each do |category| 
+  article = show_articles(category) %>
+    <% if !article.nil? %>
+      <div class = 'article-category p-2 position-relative'
+      style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+        rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+        no-repeat center/auto  url('<%= article.image %>')">
+        <ul class = 'd-flex list-unstyled'>
+            <li class = 'pl-2'>
+              <%= link_to  category.name, category_articles_path(category.id), 
+            class: 'text-white font-weight-bold' %>
+            </li>
+        </ul>
+        <span class = 'article-title-mini text-white position-absolute'>
+          <%= article.title %>
+        </span>
+        <%= render 'editbutton', article: article %>
+      </div>
+    <% end %>
+  <% end %>
+</section>

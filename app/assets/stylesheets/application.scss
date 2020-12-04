@@ -20,19 +20,78 @@ body {
   background-color: #4d423c;
 }
 
-nav a,
+main {
+  min-height: 600px;
+}
+
+a,
 a:visited,
 .btn-submit,
-nav {
+.category-list a,
+.fa-search,
+.fa-bars,
+span {
   color: #9a9691;
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-size: 0.8rem;
+}
+
+li.orange-link a {
+  color: #fb8c47;
+}
+
+.bg-orange {
+  background-color: #fb8c47;
+  color: #4d423c;
 }
 
 .btn-submit {
   background-color: #b7a28d;
 }
 
-.orange-link a {
-  color: #fb8c47;
+header {
+  background-color: #fff;
+}
+
+.logo {
+  max-width: 130px;
+}
+
+.hamburguer-menu {
+  left: 0;
+  top: 5px;
+  background-color: #63564f;
+}
+
+.category-list {
+  padding-left: 10px;
+}
+
+.session-menu {
+  padding-left: 5px;
+}
+
+@media (max-width: 767px) {
+  footer {
+    margin-top: 40px;
+  }
+
+  .logo {
+    position: absolute;
+    left: 140px;
+    top: -30px;
+  }
+
+  .category-list,
+  .session-menu {
+    padding: 0;
+    margin-left: -35px;
+    width: 120px;
+    padding-top: 10px;
+  }
+
+  .ul-session {
+    border-top: 2px solid white;
+    margin-top: 20px;
+  }
 }
