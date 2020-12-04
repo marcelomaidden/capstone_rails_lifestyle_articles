@@ -38,14 +38,15 @@ class ArticlesController < ApplicationController
     @categories = Category.priority_order
 
     if params[:user_id]
-      @articles = User.find(params[:user_id]).articles.most_recents
-      @most_voted = @articles.most_voted.nil? ? nil : @articles.most_voted
+      @articles = User.find(params[:user_id]).articles
+      @most_voted = @articles.most_voted.blank?  ? 
+      nil : @articles.most_voted
     elsif params[:category_id]
       @articles = Category.find(params[:category_id]).articles.most_recents
       if @articles.empty?
         redirect_to root_path, notice: 'There are not articles on this category yet'
       end
-    elsif Article.all.nil? || Article.all.empty?
+    elsif Article.all.blank?
       @most_voted = nil
     else
       @most_voted =Article.most_voted.nil? ? nil : Article.most_voted

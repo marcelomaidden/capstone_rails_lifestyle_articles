@@ -4,9 +4,9 @@ class Article < ApplicationRecord
   validates :text, presence: true, length: { minimum: 50, maximum: 1000 }
 
   belongs_to :author, class_name: 'User'
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
-  has_many :article_categories
+  has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories, source: :category
 
   scope :most_voted, -> { order(:title).first }
