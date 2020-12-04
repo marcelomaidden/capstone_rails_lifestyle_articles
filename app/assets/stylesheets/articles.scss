@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .featured {
   display: grid;
-  grid-template-rows: 350px;
+  grid-auto-rows: 350px;
   grid-gap: 0;
   margin: 0;
 }
@@ -39,7 +39,7 @@
 .articles {
   display: grid;
   gap: 0;
-  grid-auto-rows: 350px;
+  grid-auto-rows: 300px;
   grid-template-columns: repeat(4, 1fr);
   margin: 0;
 }
@@ -49,6 +49,10 @@
 }
 
 @media (max-width: 767px) {
+  .featured {
+    grid-auto-rows: 400px;
+  }
+
   .articles {
     grid-template-columns: repeat(2, 1fr);
   }

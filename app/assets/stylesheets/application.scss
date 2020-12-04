@@ -36,6 +36,11 @@ li.orange-link a {
   color: #fb8c47;
 }
 
+.bg-orange {
+  background-color: #fb8c47;
+  color: #4d423c;
+}
+
 .btn-submit {
   background-color: #b7a28d;
 }
@@ -63,6 +68,10 @@ header {
 }
 
 @media (max-width: 767px) {
+  footer {
+    margin-top: 40px;
+  }
+  
   .logo {
     position: absolute;
     left: 140px;
