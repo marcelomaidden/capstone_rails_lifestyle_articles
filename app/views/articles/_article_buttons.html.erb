@@ -1,0 +1,11 @@
+<%= render 'editbutton', article: article %>
+<% if allowed_to_vote?(article) %>
+  <% if !voted?(article) %>
+    <%= link_to  "", new_votes_path(article_id: article.id),
+    class: 'fa fa-thumbs-up rounded-circle vote-link position-absolute' %>
+  <% else %>
+    <%= link_to  "", edit_votes_path(id: find_vote_id(article)), 
+    method: :get, data: { confirm: 'Are you sure?' },
+     class: 'fa fa-thumbs-down rounded-circle vote-link position-absolute' %>
+  <% end %>
+<% end %>

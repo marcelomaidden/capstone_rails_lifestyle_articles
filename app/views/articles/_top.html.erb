@@ -9,7 +9,7 @@ no-repeat center/110%  url('<%= article.image if !article.nil? %>') ">
       <span class = 'article-text position-absolute text-white font-weight-bold'>
         <%= article.text if ! article.nil? %>
       </span>
-      <%= render 'editbutton', article: article %>
+      <%= render 'article_buttons', article: article %>
     </div>
   </article>
 </section>
