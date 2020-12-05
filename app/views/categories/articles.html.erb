@@ -26,13 +26,13 @@
         </div>
         <div>
           <p class = 'ml-2 category-article-text'><%= article.text %></p>
-          <p ml-2 category-article-text>
+          <p class = 'd-flex flex-column flex-md-row ml-2 category-article-text  read-more position-absolute'>
+            <span class = 'ml-2 author-name text-white font-weight-bolder'>
+              Author: <%= article.author.name %>
+            </span>
             <%= link_to  "Read more...", article_path(article.id),
-            class: 'ml-2 article-link read-more position-absolute' %>
+            class: 'ml-2 article-link' %>
           </p>
-          <span class = 'ml-2 author-name text-white font-weight-bolder'>
-            Author: <%= article.author.name %>
-          </span>
         </div>
       </div>
       <% count+=1 %>

@@ -29,7 +29,7 @@
 }
 
 .read-more {
-  bottom: 10px;
+  bottom: 0;
 }
 
 .article-category {
@@ -91,6 +91,7 @@
   .articles,
   .category-articles {
     grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 350px;
   }
 
   .article-text {
