@@ -9,7 +9,24 @@ class Article < ApplicationRecord
   has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories, source: :category
 
-  scope :most_voted, -> { order(:title).first }
+  def self.most_voted
+    top = joins(:votes).group(:article_id).count.sort_by do |k, v|
+      v
+    end.last[0]
+
+    Article.find(top)
+  end
+
+  def self.most_voted_by(user)
+    return nil if Article.find_by(author_id: user).blank?
+    user = User.find(user)
+    votes = user.articles.joins(:votes).group('articles.id')
+    top = votes.count.sort_by do |k, v|
+      v
+    end.last[0]
+
+    Article.find(top)
+  end
 
   def self.most_recents
     Article.order(created_at: :desc)

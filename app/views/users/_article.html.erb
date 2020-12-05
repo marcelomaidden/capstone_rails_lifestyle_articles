@@ -1,0 +1,12 @@
+<div class="card w-50 mx-auto mt-5">
+  <div class="card-header">
+    <h1><%= article.title %></h1>
+    <%= image_tag  article.image, class: 'article-image' %>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= article.text %></p>
+    <% if !session[:current_user].nil? && session[:current_user]['id'] == article.author.id %>
+      <%= link_to  "Edit", edit_article_path(article) %>
+    <% end %>
+  </div>
+</div>

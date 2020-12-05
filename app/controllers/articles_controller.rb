@@ -56,13 +56,9 @@ class ArticlesController < ApplicationController
 
   def articles_by_user_id
     return unless params[:user_id]
+    @articles = User.find(params[:user_id]).articles.order(created_at: :desc)
 
-    @articles = User.find(params[:user_id]).articles
-    @most_voted = if @articles.most_voted.blank?
-                    nil
-                  else
-                    @articles.most_voted
-                  end
+    render 'users/articles'
   end
 
   def articles_by_category
