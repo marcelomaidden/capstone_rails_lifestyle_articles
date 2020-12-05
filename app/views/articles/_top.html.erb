@@ -7,7 +7,7 @@ no-repeat center/110%  url('<%= article.image if !article.nil? %>') ">
         <%= link_to  article.title, article_path(article.id), 
         class: 'article-title article-link position-absolute font-weight-bold' %>
       <span class = 'article-text position-absolute text-white font-weight-bold'>
-        <%= article.text if ! article.nil? %>
+        <%= truncate(article.text, length: 250) if ! article.nil? %>
       </span>
       <%= render 'article_buttons', article: article %>
     </div>
