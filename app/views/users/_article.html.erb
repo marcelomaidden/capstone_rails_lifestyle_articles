@@ -1,6 +1,7 @@
 <div class="card w-50 mx-auto mt-5">
   <div class="card-header">
     <h1><%= article.title %></h1>
+    <span class = 'text-dark font-weigh-bold'>Number of votes: <%= article.votes.count %></span>
     <%= image_tag  article.image, class: 'article-image' %>
   </div>
   <div class="card-body">
