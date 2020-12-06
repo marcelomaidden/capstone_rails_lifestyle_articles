@@ -10,25 +10,26 @@ RSpec.feature "the signin and signout process" do
     ArticleCategory.create(article_id: 1, category_id: 1)
   end
 
+  let :login do
+      visit login_path
+      fill_in 'username', with: 'marcelomaidden'
+      click_button 'Enter'    
+  end
+
   it "signs me in with the right credentials" do
-    visit '/login'
-    fill_in 'username', with: 'marcelomaidden'
-    click_button 'Enter'
+    login
     expect(page).to have_text 'LOG-OUT'
   end
 
   it "return an error when wrong sign in credentials were provided" do
-    visit '/login'
+    visit login_path
     fill_in 'username', with: 'marcelo'
-    click_button 'commit'
+    click_button 'Enter'    
     expect(page).to have_text 'Username not found'
   end
 
   it "signs me out" do
-    visit login_path
-    visit '/login'
-    fill_in 'username', with: 'marcelomaidden'
-    click_button 'Enter'
+    login
 
     first('a', text: 'LOG-OUT').click
 
