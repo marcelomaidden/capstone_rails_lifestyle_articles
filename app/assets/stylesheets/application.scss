@@ -14,7 +14,7 @@
  *= require_self
  */
 
- @font-face {
+@font-face {
   font-family: 'CartoGothic';
   src: url(asset-path('fonts/CartoGothicStd-Bold.otf'));
   src: url(asset-path('fonts/CartoGothicStd-Italic.otf'));
@@ -64,7 +64,7 @@
 
 body {
   background-color: #4d423c;
-  font-family: 'Lato'
+  font-family: 'Lato';
 }
 
 main {
@@ -124,7 +124,7 @@ header {
 }
 
 footer {
-  font-family: 'Chivo'
+  font-family: 'Chivo';
 }
 
 @media (max-width: 767px) {

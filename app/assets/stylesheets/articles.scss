@@ -33,7 +33,7 @@
 }
 
 .article-category {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 .category-article-text,
@@ -67,7 +67,7 @@
   left: 10px;
 }
 
-.articles, 
+.articles,
 .category-articles {
   display: grid;
   gap: 0;
@@ -82,7 +82,6 @@
 .category-articles {
   grid-template-columns: repeat(2, 1fr);
 }
-
 
 .articles li {
   border-bottom: 3px solid yellow;

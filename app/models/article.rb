@@ -11,9 +11,9 @@ class Article < ApplicationRecord
 
   def self.most_voted
     if !Vote.all.blank?
-      top = joins(:votes).group(:article_id).count.sort_by do |k, v|
+      top = joins(:votes).group(:article_id).count.max_by do |_k, v|
         v
-      end.last[0] 
+      end[0]
 
       Article.find(top)
     else
@@ -23,11 +23,12 @@ class Article < ApplicationRecord
 
   def self.most_voted_by(user)
     return nil if Article.find_by(author_id: user).blank?
+
     user = User.find(user)
     votes = user.articles.joins(:votes).group('articles.id')
-    top = votes.count.sort_by do |k, v|
+    top = votes.count.max_by do |_k, v|
       v
-    end.last[0]
+    end[0]
 
     Article.find(top)
   end

@@ -56,6 +56,7 @@ class ArticlesController < ApplicationController
 
   def articles_by_user_id
     return unless params[:user_id]
+
     @articles = User.find(params[:user_id]).articles.order(created_at: :desc)
 
     render 'users/articles'
@@ -63,6 +64,7 @@ class ArticlesController < ApplicationController
 
   def articles_by_category
     return unless params[:category_id]
+
     @category = Category.find(params[:category_id])
     @articles = @category.articles.most_recents
     redirect_to root_path, notice: 'There are not articles on this category yet' if @articles.blank?
