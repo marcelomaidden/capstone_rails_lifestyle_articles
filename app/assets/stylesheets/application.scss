@@ -16,55 +16,55 @@
 
 @font-face {
   font-family: 'CartoGothic';
-  src: url(asset-path('fonts/CartoGothicStd-Bold.otf'));
-  src: url(asset-path('fonts/CartoGothicStd-Italic.otf'));
-  src: url(asset-path('fonts/CartoGothicStd-BoldItalic.otf'));
-  src: url(asset-path('fonts/CartoGothicStd-Italic.otf'));
+  src: url('fonts/CartoGothicStd-Bold.otf');
+  src: url('fonts/CartoGothicStd-Italic.otf');
+  src: url('fonts/CartoGothicStd-BoldItalic.otf');
+  src: url('fonts/CartoGothicStd-Italic.otf');
 }
 
 @font-face {
   font-family: 'Chivo';
-  src: url(asset-path('fonts/Chivo-Black.otf'));
-  src: url(asset-path('fonts/Chivo-BlackItalic.otf'));
-  src: url(asset-path('fonts/Chivo-Bold.otf'));
-  src: url(asset-path('fonts/Chivo-BoldItalic.otf'));
-  src: url(asset-path('fonts/Chivo-ExtraBold.otf'));
-  src: url(asset-path('fonts/Chivo-ExtraBoldItalic.otf'));
-  src: url(asset-path('fonts/Chivo-Italic.otf'));
-  src: url(asset-path('fonts/Chivo-Light.otf'));
-  src: url(asset-path('fonts/Chivo-LightItalic.otf'));
-  src: url(asset-path('fonts/Chivo-Medium.otf'));
-  src: url(asset-path('fonts/Chivo-MediumItalic.otf'));
-  src: url(asset-path('fonts/Chivo-Regular.otf'));
-  src: url(asset-path('fonts/Chivo-Thin.otf'));
-  src: url(asset-path('fonts/Chivo-ThinItalic.otf'));
+  src: url('fonts/Chivo-Black.otf');
+  src: url('fonts/Chivo-BlackItalic.otf');
+  src: url('fonts/Chivo-Bold.otf');
+  src: url('fonts/Chivo-BoldItalic.otf');
+  src: url('fonts/Chivo-ExtraBold.otf');
+  src: url('fonts/Chivo-ExtraBoldItalic.otf');
+  src: url('fonts/Chivo-Italic.otf');
+  src: url('fonts/Chivo-Light.otf');
+  src: url('fonts/Chivo-LightItalic.otf');
+  src: url('fonts/Chivo-Medium.otf');
+  src: url('fonts/Chivo-MediumItalic.otf');
+  src: url('fonts/Chivo-Regular.otf');
+  src: url('fonts/Chivo-Thin.otf');
+  src: url('fonts/Chivo-ThinItalic.otf');
 }
 
 @font-face {
   font-family: 'Lato';
-  src: url(asset-path('fonts/Lato-Black.ttf'));
-  src: url(asset-path('fonts/Lato-BlackItalic.ttf'));
-  src: url(asset-path('fonts/Lato-Bold.ttf'));
-  src: url(asset-path('fonts/Lato-BoldItalic.ttf'));
-  src: url(asset-path('fonts/Lato-Hairline.ttf'));
-  src: url(asset-path('fonts/Lato-Heavy.ttf'));
-  src: url(asset-path('fonts/Lato-HeavyItalic.ttf'));
-  src: url(asset-path('fonts/Lato-Italic.ttf'));
-  src: url(asset-path('fonts/Lato-Light.ttf'));
-  src: url(asset-path('fonts/Lato-LightItalic.ttf'));
-  src: url(asset-path('fonts/Lato-Medium.ttf'));
-  src: url(asset-path('fonts/Lato-MediumItalic.ttf'));
-  src: url(asset-path('fonts/Lato-Regular.ttf'));
-  src: url(asset-path('fonts/Lato-Semibold.ttf'));
-  src: url(asset-path('fonts/Lato-SemiboldItalic.ttf'));
-  src: url(asset-path('fonts/Lato-Thin.ttf'));
+  src: url('fonts/Lato-Black.ttf');
+  src: url('fonts/Lato-BlackItalic.ttf');
+  src: url('fonts/Lato-Bold.ttf');
+  src: url('fonts/Lato-BoldItalic.ttf');
+  src: url('fonts/Lato-Hairline.ttf');
+  src: url('fonts/Lato-Heavy.ttf');
+  src: url('fonts/Lato-HeavyItalic.ttf');
+  src: url('fonts/Lato-Italic.ttf');
+  src: url('fonts/Lato-Light.ttf');
+  src: url('fonts/Lato-LightItalic.ttf');
+  src: url('fonts/Lato-Medium.ttf');
+  src: url('fonts/Lato-MediumItalic.ttf');
+  src: url('fonts/Lato-Regular.ttf');
+  src: url('fonts/Lato-Semibold.ttf');
+  src: url('fonts/Lato-SemiboldItalic.ttf');
+  src: url('fonts/Lato-Thin.ttf');
 }
 
 @import "bootstrap";
 
 body {
   background-color: #4d423c;
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
 }
 
 main {
@@ -81,7 +81,7 @@ span {
   color: #9a9691;
   text-transform: uppercase;
   font-size: 0.8rem;
-  font-family: 'CartoGothic';
+  font-family: 'CartoGothic', sans-serif;
 }
 
 li.orange-link a {
@@ -120,11 +120,11 @@ header {
 }
 
 .fa-search {
-  font-family: "FontAwesome";
+  font-family: "FontAwesome", sans-serif;
 }
 
 footer {
-  font-family: 'Chivo';
+  font-family: 'Chivo', sans-serif;
 }
 
 @media (max-width: 767px) {

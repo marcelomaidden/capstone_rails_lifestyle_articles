@@ -1,18 +1,14 @@
 // Place all the styles related to the Votes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
 .vote-link,
+.vote-link:hover,
 .vote-link:visited {
   right: 40px;
   bottom: 45px;
   color: #fff;
   font-size: 30px;
-  text-decoration: none;
-}
-
-.vote-link,
-.vote-link:visited,
-.vote-link:hover {
   text-decoration: none;
 }
 
