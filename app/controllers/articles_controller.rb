@@ -42,6 +42,8 @@ class ArticlesController < ApplicationController
     articles_by_category
 
     articles_common
+ 
+    flash['notice'] =  "There are no articles yet" if Article.all.blank?
   end
 
   private
