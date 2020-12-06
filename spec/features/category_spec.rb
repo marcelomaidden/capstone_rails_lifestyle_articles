@@ -19,7 +19,7 @@ RSpec.feature 'Categories', type: :feature do
 
     it 'Show a message when there are no article on the category' do
       visit 'categories/2/articles'
-      expect(page).to have_text 'There are not articles on this category yet'
+      expect(page).to have_text 'There are no articles on this category yet'
     end
   end
 end

@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
 
     @category = Category.find(params[:category_id])
     @articles = @category.articles.most_recents
-    redirect_to root_path, notice: 'There are not articles on this category yet' if @articles.blank?
+    redirect_to root_path, notice: 'There are no articles on this category yet' if @articles.blank?
     render 'categories/articles' unless @articles.blank?
   end
 
