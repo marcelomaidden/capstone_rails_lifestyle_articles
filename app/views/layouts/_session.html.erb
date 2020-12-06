@@ -6,7 +6,7 @@
           <%= link_to session[:current_user]['name'], user_path(session[:current_user]['id'])%>
         </li>   
       <% end %>
-      <li class = 'session-menu'><%= link_to  "LOG-OUT", logout_path%></li>
+      <li class = 'session-menu'><%= link_to  "LOG-OUT", logout_path %></li>
   <% end %>
   <li class = 'session-menu'>
     <span class = 'px-1 d-none d-md-flex pt-1'>|</span>
