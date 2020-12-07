@@ -15,3 +15,8 @@
 .vote-link:hover {
   color: #fa6000;
 }
+
+.vote-link.disable {
+    color: rgba(241, 192, 192, 0.5);
+}
+
