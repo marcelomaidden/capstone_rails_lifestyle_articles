@@ -21,7 +21,7 @@
   <div class = 'col justify-content-center d-flex'>
     <%= link_to image_tag("logos/logo.png", class: 'logo'), root_path %>
   </div>
-  <div class = 'col-5 font-weight-bold d-none d-md-flex justify-content-center'>
+  <div class = 'col-3 col-md-5 font-weight-bold d-none d-md-flex justify-content-center'>
     <ul class = 'list-unstyled d-flex align-items-baseline'>
       <%= render 'categories/categories' %>
     </ul>
@@ -31,7 +31,13 @@
       <%= render 'layouts/session' %>
     </ul>
   </div>
-  <div class = 'col-1'>
-    <i class="fa fa-search text-gray float-right" style="font-size:20px"></i>
+  <div class = 'col-3 col-md-1'>
+    <%= form_for @article, :url => { :action => "search" }, method: 'get' do |f| %>
+      <%= f.text_field (:title), class: 'form-control border-0 position-relative' %>
+      <button type = 'submit' class = 'search position-absolute'> 
+         <i class="fa fa-search text-gray" style="font-size:20px">
+      </i>
+    <% end %>
+    
   </div>
 </nav>

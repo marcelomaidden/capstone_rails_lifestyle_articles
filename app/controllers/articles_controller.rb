@@ -3,10 +3,7 @@ class ArticlesController < ApplicationController
   before_action :user_loggedin?, only: %i[update create new edit]
   before_action :mine?, only: %i[edit update]
   before_action :find_article, only: %i[show edit update]
-
-  def new
-    @article = Article.new
-  end
+  before_action :article_new, only:%i[new index search]
 
   def create
     @article = Article.new(title: article_params['title'], text: article_params['text'],
@@ -46,7 +43,21 @@ class ArticlesController < ApplicationController
     flash['notice'] =  "There are no articles yet" if Article.all.blank?
   end
 
+  def search 
+    @articles = Article.where("lower(title) LIKE ?", "%#{search_params[:title].downcase}%")
+
+    if @articles.blank?
+      redirect_to root_path, notice: 'Article not found'
+    else
+      render 'articles/search'
+    end
+  end
+
   private
+
+  def article_new
+    @article = Article.new
+  end
 
   def articles_common
     @most_voted = if Article.all.blank?
@@ -75,6 +86,10 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:title, :text, :image, categories: [])
+  end
+
+  def search_params
+    params.require(:article).permit(:title)
   end
 
   def find_categories
