@@ -18,9 +18,11 @@ People can create their own articles and they have a page that suggests articles
 To get a local copy up and running follow these simple example steps.
 
 ## Clone the repository
+
 ```
-  git clone https://github.com/marcelomaidden/capstone_rails_lifestyle_articles.git
-  cd capstone_rails_lifestyle_articles
+   git clone https://github.com/marcelomaidden/capstone_rails_lifestyle_articles.git
+   cd capstone_rails_lifestyle_articles
+```
 
 ### Prerequisites
 
@@ -33,7 +35,7 @@ Postgres: >=9.5
 Instal gems with:
 
 ```
-bundle install
+   bundle install
 ```
 
 Setup database with:
