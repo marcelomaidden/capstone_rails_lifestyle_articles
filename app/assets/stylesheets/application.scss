@@ -143,16 +143,26 @@ footer {
     margin-top: 40px;
   }
 
+  header {
+    height: 10px;
+  }
+
+  .hamburguer-menu {
+    top: 0;
+  }
+
   footer li {
     margin: 0 auto;
   }
 
-  .logo {
-    width: 100%;
-  }
-
   .logo-container {
     left: 42vw;
+    top: -10px;
+  }
+
+  .container-search {
+    top: 0;
+    right: 0;
   }
 
   .category-list,

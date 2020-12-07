@@ -4,6 +4,10 @@ class ArticlesController < ApplicationController
   before_action :mine?, only: %i[edit update]
   before_action :find_article, only: %i[show edit update]
 
+  def new
+    @article = Article.new
+  end
+
   def create
     @article = Article.new(title: article_params['title'], text: article_params['text'],
                            author_id: session[:current_user]['id'], image: article_params['image'])
@@ -44,12 +48,29 @@ class ArticlesController < ApplicationController
 
   def search
     @articles = Article.where('lower(title) LIKE ?', "%#{search_params[:title].downcase}%")
+    @articles = @articles.order(created_at: :desc)
 
     if @articles.blank?
       redirect_to root_path, notice: 'Article not found'
     else
       render 'articles/search'
     end
+  end
+
+  def suggestions
+    @votes = User.find(session[:current_user]['id']).votes
+    
+    @articles_category = []
+
+    @votes.each do |vote|
+      categories = vote.categories
+      categories.each do |category|
+        @articles_category << Article.joins(:categories).where('categories.id': category.id)
+      end
+    end
+
+    @articles_category
+    render 'suggestions'
   end
 
   private

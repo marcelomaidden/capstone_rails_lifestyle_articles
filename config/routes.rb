@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get '/login', to: 'users#login'
   get '/logout', to: 'users#logout'
   post '/signin', to: 'users#signin'
-
+  get '/suggestions', to: 'articles#suggestions'
+  
   resources :users, only: [:new, :show, :update, :index, :create, :edit] do
     resources :articles 
   end

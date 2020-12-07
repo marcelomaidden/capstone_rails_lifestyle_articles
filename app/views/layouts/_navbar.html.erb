@@ -33,7 +33,7 @@
   </div>
   <div class = 'col-4 col-lg-2 position-absolute container-search d-flex'>
     <%= form_tag 'search', {method: :get} do %>
-      <%= text_field_tag 'article[title]', '', class: 'form-control border-0 position-relative' %>
+      <%= text_field_tag 'article[title]', '', class: 'form-control border-0' %>
       <button type = 'submit' class = 'search position-absolute'> 
          <i class="fa fa-search text-gray" style="font-size:20px">
       </i>
