@@ -3,7 +3,6 @@ class ArticlesController < ApplicationController
   before_action :user_loggedin?, only: %i[update create new edit]
   before_action :mine?, only: %i[edit update]
   before_action :find_article, only: %i[show edit update]
-  before_action :article_new, only:%i[new index search]
 
   def create
     @article = Article.new(title: article_params['title'], text: article_params['text'],
@@ -54,10 +53,6 @@ class ArticlesController < ApplicationController
   end
 
   private
-
-  def article_new
-    @article = Article.new
-  end
 
   def articles_common
     @most_voted = if Article.all.blank?

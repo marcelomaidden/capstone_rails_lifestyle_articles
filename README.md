@@ -10,7 +10,7 @@ People can create their own articles and they have a page that suggests articles
 
 ## Live Demo
 
-[SIT - Social Media](http://sit-social-media.herokuapp.com/)
+[Lifestyle articles](https://warm-eyrie-97291.herokuapp.com/)
 
 
 ## Getting Started
@@ -90,6 +90,7 @@ Finally run the command to create your database and tables on Heroku's server
 
 ```
     heroku run rails db:migrate
+    heroku run rails db:seed
 ``` 
 
 👤 **Marcelo Fernandes**
