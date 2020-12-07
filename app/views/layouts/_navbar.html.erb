@@ -1,5 +1,5 @@
 <nav class = 'd-flex align-items-baseline'>
-  <div class = 'col-3 d-flex d-md-none position-absolute hamburguer-menu'>
+  <div class = 'col-5 col-md-2 d-flex d-lg-none hamburguer-menu position-absolute'>
     <div class="pos-f-t">
       <div class="navbar navbar-dark">
         <button class="navbar-toggler" type="button" data-toggle="collapse" 
@@ -18,20 +18,20 @@
       </div>
     </div>
   </div>
-  <div class = 'col justify-content-center d-flex'>
+  <div class = 'col-2 col-lg-1 justify-content-center d-flex px-5 logo-container position-relative'>
     <%= link_to image_tag("logos/logo.png", class: 'logo'), root_path %>
   </div>
-  <div class = 'col-3 col-md-5 font-weight-bold d-none d-md-flex justify-content-center'>
+  <div class = 'col-lg-7 font-weight-bold d-none d-lg-flex justify-content-center'>
     <ul class = 'list-unstyled d-flex align-items-baseline'>
       <%= render 'categories/categories' %>
     </ul>
   </div>
-  <div class = 'd-none d-md-flex col-3 font-weight-bold justify-content-end align-content-baseline'>
+  <div class = 'd-none d-lg-flex col-3 font-weight-bold justify-content-end align-content-baseline'>
     <ul class = 'list-unstyled d-flex'>
       <%= render 'layouts/session' %>
     </ul>
   </div>
-  <div class = 'col-3 col-md-1'>
+  <div class = 'col-4 col-lg-2 position-absolute container-search d-flex'>
     <%= form_tag 'search', {method: :get} do %>
       <%= text_field_tag 'article[title]', '', class: 'form-control border-0 position-relative' %>
       <button type = 'submit' class = 'search position-absolute'> 

@@ -102,13 +102,7 @@ header {
 }
 
 .logo {
-  max-width: 130px;
-}
-
-.hamburguer-menu {
-  left: 0;
-  top: 5px;
-  background-color: #4d423c;
+  max-width: 100px;
 }
 
 .category-list {
@@ -128,14 +122,23 @@ header {
   border: 0;
   right: 15px;
   top: 5px;
-  z-index: 10;
 }
 
 footer {
   font-family: 'Chivo', sans-serif;
 }
 
-@media (max-width: 767px) {
+.hamburguer-menu {
+  left: 0;
+  top: -10px;
+  background-color: #4d423c;
+}
+
+.container-search {
+  right: 0;
+}
+ 
+@media (max-width: 1023px) { 
   footer {
     margin-top: 40px;
   }
@@ -145,10 +148,11 @@ footer {
   }
 
   .logo {
-    position: absolute;
-    left: 160px;
-    margin: 0 auto;
-    top: -30px;
+    width: fit-content;
+  }
+
+  .logo-container {
+    left: 42vw;
   }
 
   .category-list,
