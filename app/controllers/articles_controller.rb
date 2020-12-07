@@ -38,12 +38,12 @@ class ArticlesController < ApplicationController
     articles_by_category
 
     articles_common
- 
-    flash['notice'] =  "There are no articles yet" if Article.all.blank?
+
+    flash['notice'] = 'There are no articles yet' if Article.all.blank?
   end
 
-  def search 
-    @articles = Article.where("lower(title) LIKE ?", "%#{search_params[:title].downcase}%")
+  def search
+    @articles = Article.where('lower(title) LIKE ?', "%#{search_params[:title].downcase}%")
 
     if @articles.blank?
       redirect_to root_path, notice: 'Article not found'

@@ -10,7 +10,7 @@ People can create their own articles and they have a page that suggests articles
 
 ## Live Demo
 
-[Lifestyle articles](https://warm-eyrie-97291.herokuapp.com/)
+[Lifestyle articles](https://shrouded-crag-57574.herokuapp.com/)
 
 
 ## Getting Started

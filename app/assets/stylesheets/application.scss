@@ -137,18 +137,18 @@ footer {
 .container-search {
   right: 0;
 }
- 
-@media (max-width: 1023px) { 
+
+@media (max-width: 1023px) {
   footer {
     margin-top: 40px;
   }
 
-  footer li { 
+  footer li {
     margin: 0 auto;
   }
 
   .logo {
-    width: fit-content;
+    width: 100%;
   }
 
   .logo-container {
