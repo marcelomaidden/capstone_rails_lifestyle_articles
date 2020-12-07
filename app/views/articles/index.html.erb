@@ -14,7 +14,7 @@
             </li>
         </ul>
         <span class = 'article-title-mini text-white position-absolute'>
-          <%= link_to  article.title, article_path(article.id), 
+          <%= link_to  truncate(article.title,length: 35), article_path(article.id), 
             class: 'text-white font-weight-bold' %>
         </span>
         <%= render 'article_buttons', article: article %>
