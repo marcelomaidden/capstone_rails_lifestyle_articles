@@ -58,8 +58,8 @@ class ArticlesController < ApplicationController
   end
 
   def suggestions
-    v=Vote.select(:article_id).where(user_id:session[:current_user]['id']).includes(:article)
-    articles_category = ArticleCategory.where(article_id:v).includes(:article, :category)
+    v = Vote.select(:article_id).where(user_id: session[:current_user]['id']).includes(:article)
+    articles_category = ArticleCategory.where(article_id: v).includes(:article, :category)
     categories = articles_category.pluck(:category_id)
     @articles = Article.includes(:article_categories, :categories, :author)
     @articles = @articles.where('article_categories.category_id': categories)
