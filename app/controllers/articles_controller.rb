@@ -47,9 +47,7 @@ class ArticlesController < ApplicationController
   end
 
   def search
-    @articles = Article.where('lower(title) LIKE ?', "%#{search_params[:title].downcase}%")
-    @articles = @articles.includes(:author, :article_categories, :categories).order(created_at: :desc)
-
+    @articles = Article.search(search_params[:title])
     if @articles.blank?
       redirect_to root_path, notice: 'Article not found'
     else
