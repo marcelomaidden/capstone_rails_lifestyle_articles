@@ -1,11 +1,16 @@
 class ArticlesController < ApplicationController
   before_action :find_categories, only: %i[new create]
   before_action :user_loggedin?, only: %i[update create new edit]
-  before_action :mine?, only: %i[edit update]
   before_action :find_article, only: %i[show edit update]
 
   def new
     @article = Article.new
+  end
+
+  def edit
+    if !Article.mine?(params[:id], session[:current_user]['id'])
+      redirect_to root_path, notice: 'User is not allowed to edit this article' 
+    end
   end
 
   def create
@@ -56,11 +61,7 @@ class ArticlesController < ApplicationController
   end
 
   def suggestions
-    v = Vote.select(:article_id).where(user_id: session[:current_user]['id']).includes(:article)
-    articles_category = ArticleCategory.where(article_id: v).includes(:article, :category)
-    categories = articles_category.pluck(:category_id)
-    @articles = Article.includes(:article_categories, :categories, :author)
-    @articles = @articles.where('article_categories.category_id': categories)
+    v = Vote.suggestions(session[:current_user]['id'])
 
     render 'suggestions'
   end
@@ -122,12 +123,5 @@ class ArticlesController < ApplicationController
     end
 
     redirect_to articles_path, notice: error if error.any?
-  end
-
-  def mine?
-    @article = Article.find(params[:id])
-    return false unless @article.author.id != session[:current_user]['id']
-
-    redirect_to root_path, notice: 'User is not allowed to edit this article'
   end
 end

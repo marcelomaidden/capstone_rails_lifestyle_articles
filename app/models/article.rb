@@ -41,4 +41,10 @@ class Article < ApplicationRecord
     @articles = Article.where('lower(title) LIKE ?', "%#{title.downcase}%")
     @articles = @articles.includes(:author, :article_categories, :categories).order(created_at: :desc)
   end
+
+
+  def self.mine?(article_id, logged_user)
+    article = Article.find(article_id)
+    return false unless article.author.id != logged_user
+  end
 end
