@@ -32,6 +32,6 @@ RSpec.feature 'Session' do
 
     first('a', text: 'LOG-OUT').click
 
-    expect(page).to have_text 'Login'
+    expect(page).to have_text 'LOG-IN'
   end
 end

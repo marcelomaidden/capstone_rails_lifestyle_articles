@@ -38,10 +38,12 @@ RSpec.feature 'Articles', type: :feature do
     it 'Creates an article when all fields were filled' do
       login
       visit new_article_path
-      fill_in 'article_title', with: 'My first article'
-      fill_in 'article_text', with: 'This article was made to test if an article is valid'
-      fill_in 'article_image', with: "Images' url"
-      click_on 'Create Article'
+      within('#new_article') do
+        fill_in 'article_title', with: 'My first article'
+        fill_in 'article_text', with: 'This article was made to test if an article is valid'
+        fill_in 'article_image', with: "Images' url"
+        click_on 'Create Article'
+      end
 
       expect(page).to have_text 'Article successfully created'
     end
