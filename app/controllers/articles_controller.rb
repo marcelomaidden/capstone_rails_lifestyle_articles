@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
 
   def search
     @articles = Article.where('lower(title) LIKE ?', "%#{search_params[:title].downcase}%")
-    @articles = @articles.order(created_at: :desc)
+    @articles = @articles.includes(:author, :article_categories, :categories).order(created_at: :desc)
 
     if @articles.blank?
       redirect_to root_path, notice: 'Article not found'
@@ -58,18 +58,12 @@ class ArticlesController < ApplicationController
   end
 
   def suggestions
-    @votes = User.find(session[:current_user]['id']).votes
-    
-    @articles_category = []
+    v=Vote.select(:article_id).where(user_id:session[:current_user]['id']).includes(:article)
+    articles_category = ArticleCategory.where(article_id:v).includes(:article, :category)
+    categories = articles_category.pluck(:category_id)
+    @articles = Article.includes(:article_categories, :categories, :author)
+    @articles = @articles.where('article_categories.category_id': categories)
 
-    @votes.each do |vote|
-      categories = vote.categories
-      categories.each do |category|
-        @articles_category << Article.joins(:categories).where('categories.id': category.id)
-      end
-    end
-
-    @articles_category
     render 'suggestions'
   end
 
@@ -95,7 +89,7 @@ class ArticlesController < ApplicationController
     return unless params[:category_id]
 
     @category = Category.find(params[:category_id])
-    @articles = @category.articles.most_recents
+    @articles = @category.articles.most_recents.includes([:author])
     redirect_to root_path, notice: 'There are no articles on this category yet' if @articles.blank?
     render 'categories/articles' unless @articles.blank?
   end

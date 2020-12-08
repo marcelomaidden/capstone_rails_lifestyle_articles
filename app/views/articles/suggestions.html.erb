@@ -1,26 +1,24 @@
 <section class = 'articles'>
-  <% @articles_category.each do |article_category| %>
-    <% article_category.each do |article| %>
-        <% if !article.blank? %>
-            <div class = 'p-2 position-relative'
-            style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
-              rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
-              no-repeat center/auto  url('<%= article.image %>')">
-              <ul class = 'd-flex list-unstyled'>
-                  <% article.categories.each do |category| %>
-                    <li class = 'ml-2'>
-                      <%= link_to  category.name, category_articles_path(category.id), 
-                    class: 'text-white font-weight-bold' %>
-                    </li>
-                  <% end %>
-              </ul>
-              <span class = 'article-title-mini text-white position-absolute'>
-                <%= link_to  truncate(article.title,length: 35), article_path(article.id), 
+  <% @articles.each do |article| %>
+    <% if !article.blank? %>
+          <div class = 'p-2 position-relative'
+          style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+            rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+            no-repeat center/auto  url('<%= article.image %>')">
+            <ul class = 'd-flex list-unstyled'>
+                <% article.categories.each do |category| %>
+                  <li class = 'ml-2'>
+                    <%= link_to  category.name, category_articles_path(category.id), 
                   class: 'text-white font-weight-bold' %>
-              </span>
-              <%= render 'article_buttons', article: article %>
-            </div>
-          <% end %>
-    <% end %>
+                  </li>
+                <% end %>
+            </ul>
+            <span class = 'article-title-mini text-white position-absolute'>
+              <%= link_to  truncate(article.title,length: 35), article_path(article.id), 
+                class: 'text-white font-weight-bold' %>
+            </span>
+            <%= render 'article_buttons', article: article %>
+          </div>
+        <% end %>
   <% end %>
 </section>
