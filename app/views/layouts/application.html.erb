@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LifestyleArticle</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +13,7 @@
   </head>
 
   <body>
-    <header class = 'container-fluid p-3 sticky-top'>
+    <header class = 'd-flex p-4 sticky-top'>
       <%= render 'layouts/navbar' %>
     </header>
     <% flash.each do |type, msg| %>

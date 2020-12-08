@@ -1,37 +1,43 @@
-     <nav class = 'd-flex align-items-baseline'>
-        <div class = 'col-3 d-flex d-md-none position-absolute hamburguer-menu'>
-          <div class="pos-f-t">
-            <div class="navbar navbar-dark">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" 
-              data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" 
-              aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-            </div>
-            <div class="collapse" id="navbarToggleExternalContent">
-              <div class="p-4">
-                <ul class = 'list-unstyled align-items-baseline'>
-                  <%= render 'categories/categories' %>
-                  <%= render 'layouts/session' %>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class = 'col-3 justify-content-end mx-auto'>
-          <%= link_to image_tag("logos/logo.png", class: 'logo'), root_path %>
-        </div>
-        <div class = 'col-4 font-weight-bold d-none d-md-flex'>
-          <ul class = 'list-unstyled d-flex align-items-baseline'>
+<nav class = 'd-flex align-items-baseline'>
+  <div class = 'col-5 col-md-2 d-flex d-lg-none hamburguer-menu position-absolute'>
+    <div class="pos-f-t">
+      <div class="navbar navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+        data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" 
+        aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="p-4">
+          <ul class = 'list-unstyled align-items-baseline'>
             <%= render 'categories/categories' %>
-          </ul>
-        </div>
-        <div class = 'd-none d-md-flex col-4 font-weight-bold justify-content-end align-content-baseline'>
-          <ul class = 'list-unstyled d-flex'>
             <%= render 'layouts/session' %>
           </ul>
         </div>
-        <div class = 'col'>
-          <i class="fa fa-search text-gray float-right" style="font-size:20px"></i>
-        </div>
-      </nav>
+      </div>
+    </div>
+  </div>
+  <div class = 'col-2 col-lg-1 justify-content-center d-flex px-5 logo-container position-relative'>
+    <%= link_to image_tag("logos/logo.png", class: 'logo'), root_path %>
+  </div>
+  <div class = 'col-lg-9 font-weight-bold d-none d-lg-flex justify-content-center'>
+    <ul class = 'list-unstyled d-flex align-items-baseline'>
+      <%= render 'categories/categories' %>
+    </ul>
+  </div>
+  <div class = 'col-4 col-lg-2 position-absolute container-search d-flex'>
+    <div class = 'd-none d-lg-flex col-5 session-menu font-weight-bold position-relative'>
+      <ul class = 'list-unstyled d-flex'>
+        <%= render 'layouts/session' %>
+      </ul>
+    </div>
+    <%= form_tag 'search', {method: :get, class: 'col-12 col-lg-7 position-relative'}  do %>
+      <%= text_field_tag 'article[title]', '', class: 'form-control border-0' %>
+      <button type = 'submit' class = 'search position-absolute'> 
+         <i class="fa fa-search text-gray" style="font-size:20px">
+      </i>
+    <% end %>
+    
+  </div>
+</nav>

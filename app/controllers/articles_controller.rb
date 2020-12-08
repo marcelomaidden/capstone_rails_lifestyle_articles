@@ -42,6 +42,29 @@ class ArticlesController < ApplicationController
     articles_by_category
 
     articles_common
+
+    flash['notice'] = 'There are no articles yet' if Article.all.blank?
+  end
+
+  def search
+    @articles = Article.where('lower(title) LIKE ?', "%#{search_params[:title].downcase}%")
+    @articles = @articles.includes(:author, :article_categories, :categories).order(created_at: :desc)
+
+    if @articles.blank?
+      redirect_to root_path, notice: 'Article not found'
+    else
+      render 'articles/search'
+    end
+  end
+
+  def suggestions
+    v = Vote.select(:article_id).where(user_id: session[:current_user]['id']).includes(:article)
+    articles_category = ArticleCategory.where(article_id: v).includes(:article, :category)
+    categories = articles_category.pluck(:category_id)
+    @articles = Article.includes(:article_categories, :categories, :author)
+    @articles = @articles.where('article_categories.category_id': categories)
+
+    render 'suggestions'
   end
 
   private
@@ -57,23 +80,26 @@ class ArticlesController < ApplicationController
   def articles_by_user_id
     return unless params[:user_id]
 
-    @articles = User.find(params[:user_id]).articles
-    @most_voted = if @articles.most_voted.blank?
-                    nil
-                  else
-                    @articles.most_voted
-                  end
+    @articles = User.find(params[:user_id]).articles.order(created_at: :desc)
+
+    render 'users/articles'
   end
 
   def articles_by_category
     return unless params[:category_id]
 
-    @articles = Category.find(params[:category_id]).articles.most_recents
-    redirect_to root_path, notice: 'There are not articles on this category yet' if @articles.blank?
+    @category = Category.find(params[:category_id])
+    @articles = @category.articles.most_recents.includes([:author])
+    redirect_to root_path, notice: 'There are no articles on this category yet' if @articles.blank?
+    render 'categories/articles' unless @articles.blank?
   end
 
   def article_params
     params.require(:article).permit(:title, :text, :image, categories: [])
+  end
+
+  def search_params
+    params.require(:article).permit(:title)
   end
 
   def find_categories

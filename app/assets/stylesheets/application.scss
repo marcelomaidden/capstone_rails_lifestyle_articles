@@ -14,10 +14,57 @@
  *= require_self
  */
 
+@font-face {
+  font-family: 'CartoGothic';
+  src: url('fonts/CartoGothicStd-Bold.otf');
+  src: url('fonts/CartoGothicStd-Italic.otf');
+  src: url('fonts/CartoGothicStd-BoldItalic.otf');
+  src: url('fonts/CartoGothicStd-Italic.otf');
+}
+
+@font-face {
+  font-family: 'Chivo';
+  src: url('fonts/Chivo-Black.otf');
+  src: url('fonts/Chivo-BlackItalic.otf');
+  src: url('fonts/Chivo-Bold.otf');
+  src: url('fonts/Chivo-BoldItalic.otf');
+  src: url('fonts/Chivo-ExtraBold.otf');
+  src: url('fonts/Chivo-ExtraBoldItalic.otf');
+  src: url('fonts/Chivo-Italic.otf');
+  src: url('fonts/Chivo-Light.otf');
+  src: url('fonts/Chivo-LightItalic.otf');
+  src: url('fonts/Chivo-Medium.otf');
+  src: url('fonts/Chivo-MediumItalic.otf');
+  src: url('fonts/Chivo-Regular.otf');
+  src: url('fonts/Chivo-Thin.otf');
+  src: url('fonts/Chivo-ThinItalic.otf');
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('fonts/Lato-Black.ttf');
+  src: url('fonts/Lato-BlackItalic.ttf');
+  src: url('fonts/Lato-Bold.ttf');
+  src: url('fonts/Lato-BoldItalic.ttf');
+  src: url('fonts/Lato-Hairline.ttf');
+  src: url('fonts/Lato-Heavy.ttf');
+  src: url('fonts/Lato-HeavyItalic.ttf');
+  src: url('fonts/Lato-Italic.ttf');
+  src: url('fonts/Lato-Light.ttf');
+  src: url('fonts/Lato-LightItalic.ttf');
+  src: url('fonts/Lato-Medium.ttf');
+  src: url('fonts/Lato-MediumItalic.ttf');
+  src: url('fonts/Lato-Regular.ttf');
+  src: url('fonts/Lato-Semibold.ttf');
+  src: url('fonts/Lato-SemiboldItalic.ttf');
+  src: url('fonts/Lato-Thin.ttf');
+}
+
 @import "bootstrap";
 
 body {
   background-color: #4d423c;
+  font-family: 'Lato', sans-serif;
 }
 
 main {
@@ -34,6 +81,7 @@ span {
   color: #9a9691;
   text-transform: uppercase;
   font-size: 0.8rem;
+  font-family: 'CartoGothic', sans-serif;
 }
 
 li.orange-link a {
@@ -54,13 +102,7 @@ header {
 }
 
 .logo {
-  max-width: 130px;
-}
-
-.hamburguer-menu {
-  left: 0;
-  top: 5px;
-  background-color: #63564f;
+  max-width: 100px;
 }
 
 .category-list {
@@ -69,17 +111,58 @@ header {
 
 .session-menu {
   padding-left: 5px;
+  left: -70px;
 }
 
-@media (max-width: 767px) {
+.fa-search {
+  font-family: "FontAwesome", sans-serif;
+}
+
+.search {
+  background: transparent;
+  border: 0;
+  right: 15px;
+  top: 5px;
+}
+
+footer {
+  font-family: 'Chivo', sans-serif;
+}
+
+.hamburguer-menu {
+  left: 0;
+  top: -10px;
+  background-color: #4d423c;
+}
+
+.container-search {
+  right: 0;
+}
+
+@media (max-width: 1023px) {
   footer {
     margin-top: 40px;
   }
 
-  .logo {
-    position: absolute;
-    left: 140px;
-    top: -30px;
+  header {
+    height: 10px;
+  }
+
+  .hamburguer-menu {
+    top: 0;
+  }
+
+  footer li {
+    margin: 0 auto;
+  }
+
+  .logo-container {
+    left: 42vw;
+    top: -10px;
+  }
+
+  .container-search {
+    top: 0;
   }
 
   .category-list,
