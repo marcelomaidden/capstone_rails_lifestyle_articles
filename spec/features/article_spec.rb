@@ -4,11 +4,11 @@ require 'rails_helper'
 
 RSpec.feature 'Articles', type: :feature do
   before :each do
-    User.create(id: 1, name: 'Marcelo', username: 'marcelomaidden')
-    Article.create(id: 1, author_id: 1, title: 'First article',
+    User.create(id: 2, name: 'Marcelo', username: 'marcelomaidden')
+    Article.create(id: 2, author_id: 1, title: 'First article',
                    text: 'Beautiful article made by Marcelo in order to test the code',
                    image: 'url for the image')
-    ArticleCategory.create(article_id: 1, category_id: 1)
+    ArticleCategory.create(article_id: 2, category_id: 1)
   end
 
   let :login do

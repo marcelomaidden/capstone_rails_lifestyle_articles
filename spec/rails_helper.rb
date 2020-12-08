@@ -32,7 +32,7 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
-  config.before(:suite) do
+  config.before(:each) do
     DatabaseCleaner.strategy = :deletion
   end
 
