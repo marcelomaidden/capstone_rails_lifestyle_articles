@@ -8,6 +8,11 @@ People can create their own articles and they have a page that suggests articles
 - Ruby v2.7.0
 - Ruby on Rails v5.2.4
 
+## Video presentantions
+
+[Video 1](https://www.loom.com/share/5b228ca5e4384477b71c59ffddf3c9a8)
+[Continuation](https://www.loom.com/share/76563ba50ba74552bc75d087fbc2380b)
+
 ## Live Demo
 
 [Lifestyle articles](https://shrouded-crag-57574.herokuapp.com/)
