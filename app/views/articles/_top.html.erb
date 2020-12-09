@@ -1,5 +1,4 @@
 <section class = 'featured position-relative'>
-  <% if !article.blank? %>
     <article
   style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
   rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
@@ -13,5 +12,4 @@
         <%= render 'article_buttons', article: article %>
       </div>
     </article>
-  <% end %>
 </section>

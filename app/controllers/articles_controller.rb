@@ -61,7 +61,7 @@ class ArticlesController < ApplicationController
   end
 
   def suggestions
-    v = Vote.suggestions(session[:current_user]['id'])
+    @articles = Vote.suggestions(session[:current_user]['id'])
 
     render 'suggestions'
   end

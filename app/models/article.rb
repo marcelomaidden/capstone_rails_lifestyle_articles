@@ -45,6 +45,6 @@ class Article < ApplicationRecord
 
   def self.mine?(article_id, logged_user)
     article = Article.find(article_id)
-    return false unless article.author.id != logged_user
+    return true unless article.author.id != logged_user
   end
 end
