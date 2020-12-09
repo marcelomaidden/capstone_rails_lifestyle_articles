@@ -22,7 +22,7 @@ RSpec.describe Category, type: :model do
 
     it "Validates category's name length" do
       category = Category.new(name: 'Beach is a place where we have sand, salt water and the ocean',
-                               priority: 1)
+                              priority: 1)
 
       expect(category).to_not be_valid
     end
