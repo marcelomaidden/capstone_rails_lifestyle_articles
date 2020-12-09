@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to users_path, notice: 'User successfully updated'
+      redirect_to users_path, notice: 'Category successfully updated'
     else
       redirect_to edit_user_path(@user), notice: 'An error ocurred while updating this user'
     end

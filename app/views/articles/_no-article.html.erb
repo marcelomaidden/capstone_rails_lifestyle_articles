@@ -1,0 +1,12 @@
+<div class="card w-50 mx-auto mt-5">
+  <div class="card-header">
+    <h1>No articles found</h1>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      <% if !session[:current_user].nil?  %>
+        <%= link_to  "Create you own article", new_article_path %>
+      <% end %>      
+    </p>    
+  </div>
+</div>
