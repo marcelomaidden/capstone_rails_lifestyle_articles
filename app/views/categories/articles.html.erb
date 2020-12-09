@@ -1,46 +1,10 @@
 <section class = 'category-articles'>
   <% count = 0 %>
   <% @articles.each do |article| %>
-    <% if !article.nil? %>
-      <div class = "d-flex <%= count < 2 ? 'flex-row' : 'flex-row-reverse' %>">
-        <div class = "p-2 w-50"
-          style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
-          rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
-          no-repeat center/auto  url('<%= article.image %>')">
-        </div>
-        <div class = "p-2 position-relative w-50"
-        style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
-          rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
-          repeat center/1%  
-          url('https://images.tcdn.com.br/img/editor/up/670388/estilotexarabescolosangosestampa.jpg')">
-          <ul class = 'd-flex list-unstyled'>
-              <li class = 'ml-2 orange-link'>
-                <%= link_to  @category.name, category_articles_path(@category.id), 
-              class: 'font-weight-bold' %>
-              </li>
-          </ul>
-          <div class = 'article-title-mini'>
-            <%= render 'articles/article_buttons', article: article %>
-            <h6 class = ' ml-2 mt-2 text-dark font-weight-bolder'>
-              <%= article.title %>
-            </h6>
-          </div>
-          <div>
-            <p class = 'ml-2 category-article-text'><%= truncate(article.text, length: 200) %></p>
-            <p class = 'd-flex flex-column flex-md-row ml-2 category-article-text  read-more position-absolute'>
-              <span class = 'ml-2 author-name text-white font-weight-bolder'>
-                Author: <%= article.author.name %>
-              </span>
-              <%= link_to  "Read more...", article_path(article.id),
-              class: 'ml-2 article-link' %>
-            </p>
-          </div>
-        </div>
-      </div>
+      <%= articles_by_category(article, @category, count) %>
       <% 
         count+=1 
         count = 0 if count == 4
       %>
-    <% end %>
   <% end %>
 </section>

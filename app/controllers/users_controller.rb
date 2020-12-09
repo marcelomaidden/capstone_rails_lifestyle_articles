@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :user_loggedin?, only: %i[index show update]
   before_action :find_user, only: %i[show update edit]
-  before_action :myself?, only: %i[update edit]
 
   def new
     @user = User.new
@@ -16,9 +15,15 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    return if Article.mine?(params[:id], session[:current_user]['id'])
+
+    redirect_to root_path, notice: 'Current user is not allowed to edit this user'
+  end
+
   def update
     if @user.update(user_params)
-      redirect_to users_path, notice: 'User successfully updated'
+      redirect_to users_path, notice: 'Category successfully updated'
     else
       redirect_to edit_user_path(@user), notice: 'An error ocurred while updating this user'
     end
@@ -65,12 +70,5 @@ class UsersController < ApplicationController
 
   def signin_params
     params.require(:user).permit(:username)
-  end
-
-  def myself?
-    @user = User.find(params[:id])
-    return false unless @user.id != session[:current_user]['id']
-
-    redirect_to root_path, notice: 'Current user is not allowed to edit this user'
   end
 end

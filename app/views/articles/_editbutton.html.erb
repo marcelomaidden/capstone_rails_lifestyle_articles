@@ -1,9 +1,7 @@
-<% if !session[:current_user].nil? && !article.nil? &&
-session[:current_user]['id'] == article.author.id %>
-  <span>
-    <%= form_for article, :url => edit_article_path(article), 
-    html: { method: 'get' } do |f|%>
-      <%= f.submit  "Edit article", class: 'btn-submit text-white' %>
-    <% end %>
-  </span>
-<% end %>
+<span>
+  <%= form_for article, :url => edit_article_path(article), 
+  html: { method: 'get' } do |f|%>
+    <%= f.submit  "Edit article", 
+    class: "btn-submit text-white #{article_owner?(article)}" %>
+  <% end %>
+</span>

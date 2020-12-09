@@ -82,6 +82,7 @@
 
 .category-articles {
   grid-template-columns: repeat(2, 1fr);
+  overflow: hidden;
 }
 
 .articles li {

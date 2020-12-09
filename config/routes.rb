@@ -7,16 +7,16 @@ Rails.application.routes.draw do
   get '/suggestions', to: 'articles#suggestions'
   
   resources :users, only: [:new, :show, :update, :index, :create, :edit] do
-    resources :articles 
+    resources :articles, only: [:new, :show, :update, :edit, :create, :index] 
   end
 
-  resource :votes 
+  resource :votes, only: [:new, :edit] 
 
-  resources :articles
+  resources :articles, only: [:new, :show, :update, :edit, :create, :index]
 
   get '/search', to: 'articles#search'
 
-  resources :categories, only: [:show] do 
-    resources :articles
+  resources :categories, only: [:new, :edit, :index, :create, :update] do 
+    resources :articles, only: [:new, :show, :update, :edit, :create, :index]
   end
 end

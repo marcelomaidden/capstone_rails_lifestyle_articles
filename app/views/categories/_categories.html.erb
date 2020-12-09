@@ -1,7 +1,7 @@
 <li class = 'orange-link px-1 category-list'><%= link_to  "HOME", root_path %></li>
-<% if !session[:current_user].nil? %>
-  <li class = 'orange-link px-1 category-list'><%= link_to  "Write an article", new_article_path %></li>
-<%end%>
+<li class = "orange-link px-1 category-list">
+  <%= link_to  "Write an article", new_article_path, class: "#{class_visible}" %>
+</li>
 <% Category.all.priority_order.each do |c| %>
   <li class='category-list'><%= link_to  c.name, 
   category_articles_path(c.id) %></li>

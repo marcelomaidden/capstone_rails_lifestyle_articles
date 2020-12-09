@@ -11,14 +11,14 @@ Category.create(name: 'Resorts', priority: 3)
 Category.create(name: 'Adventure', priority: 4)
 Category.create(name: 'Mountain', priority: 5)
 
-User.create(id:1, name: 'Marcelo', username: 'marcelomaidden@gmail.com')
-User.create(id:2, name: 'Steven', username: 'steven@gmail.com')
-User.create(id:3, name: 'Carlos', username: 'carlos@gmail.com')
-User.create(id:4, name: 'Arturo', username: 'arturo@gmail.com')
-User.create(id:5, name: 'Mir', username: 'mir@gmail.com')
-User.create(id:6, name: 'Imran', username: 'imran@gmail.com')
+User.create(name: 'Marcelo', username: 'marcelomaidden@gmail.com')
+User.create(name: 'Steven', username: 'steven@gmail.com')
+User.create(name: 'Carlos', username: 'carlos@gmail.com')
+User.create(name: 'Arturo', username: 'arturo@gmail.com')
+User.create(name: 'Mir', username: 'mir@gmail.com')
+User.create(name: 'Imran', username: 'imran@gmail.com')
 
-Article.create(id:1, author_id:1, title: 'Maldives, the best island for honeymoon', 
+Article.create(author_id:1, title: 'Maldives, the best island for honeymoon', 
   text: 'Maldives, a destination consisting of 26 oval-shaped atolls & over 1,000 coral islands, 
   has established a reputation for itself as one of the exotic honeymoon destinations, 
   and for a good reason. The destination has a large number of privately owned artificial 
@@ -42,7 +42,7 @@ Vote.create(article_id: 1, user_id: 4)
 Vote.create(article_id: 1, user_id: 5)
 Vote.create(article_id: 1, user_id: 6)
 
-Article.create(id:2, author_id:2, title: 'Male Island: Best Island In Maldives',
+Article.create(author_id:2, title: 'Male Island: Best Island In Maldives',
   text: 'Male is the best island in Maldives for honeymoon for all those luxury-seeker couples. 
   It is on this island that the major international airport of Maldives is located and you should
    ideally visit this island at the very beginning or the end of your honeymoon in Maldives. 
@@ -58,7 +58,7 @@ Vote.create(article_id: 2, user_id: 3)
 Vote.create(article_id: 2, user_id: 4)
 Vote.create(article_id: 2, user_id: 5)
 
-Article.create(id:3, author_id: 3, title: 'Fihalhohi Island: Beauty And Romance',
+Article.create(author_id: 3, title: 'Fihalhohi Island: Beauty And Romance',
   text: 'Situated in the Kaafu Atoll of South Mal-, is among the most beautiful places to visit in Maldives for the honeymooners. The Fihalhohi Island Resort here is, in fact, is one of the most romantic Maldives island resorts that has a number of overwater bungalows to stay in.
 
   Best experiences: In addition to its well-equipped overwater properties, 
@@ -73,7 +73,7 @@ ArticleCategory.create(article_id: 3, category_id: 3)
 
 Vote.create(article_id: 3, user_id: 5)
 
-Article.create(id:4, author_id: 4, 
+Article.create(author_id: 4, 
   title: 'A Honeymoon in Arunachal Pradesh',
 text: 'You have met your soulmate, and the special day in both of your life is to arrive soon.
  The big fat wedding in your life brings with it lots of chaos and everything seems to spiral 
@@ -91,3 +91,53 @@ ArticleCategory.create(article_id: 4, category_id: 5)
 
 Vote.create(article_id: 4, user_id: 5)
 Vote.create(article_id: 4, user_id: 3)
+
+
+Article.create(author_id: 4, 
+  title: 'What is rights of nature',
+text: 'Rights of Nature is the recognition and honoring that Nature has rights.  
+It is the recognition that our ecosystems – including trees, oceans, animals, mountains – have 
+rights just as human beings have rights. Rights of Nature is about balancing what is good for
+ human beings against what is good for other species, what is good for the planet as a world. 
+  It is the holistic recognition that all life, all ecosystems on our planet are deeply intertwined.
+
+Rather than treating nature as property under the law, rights of nature acknowledges that nature in all its life forms has the right to exist, persist, maintain and regenerate its vital cycles.',
+image: 'https://therightsofnature.org/wp-content/uploads/2018/01/turkey-3048299_1920-1366x550.jpg')
+
+ArticleCategory.create(article_id: 5, category_id: 4)
+ArticleCategory.create(article_id: 5, category_id: 5)
+
+
+
+Vote.create(article_id: 5, user_id: 3)
+
+Article.create(author_id: 4, 
+  title: 'Learn about rights of nature',
+text: 'Rights of Nature is the recognition and honoring that Nature has rights.  
+It is the recognition that our ecosystems – including trees, oceans, animals, mountains – have 
+rights just as human beings have rights. Rights of Nature is about balancing what is good for
+ human beings against what is good for other species, what is good for the planet as a world. 
+  It is the holistic recognition that all life, all ecosystems on our planet are deeply intertwined.
+
+Rather than treating nature as property under the law, rights of nature acknowledges that nature in all its life forms has the right to exist, persist, maintain and regenerate its vital cycles.',
+image: 'https://therightsofnature.org/wp-content/uploads/2019/05/IMG_8663.jpg')
+
+ArticleCategory.create(article_id: 5, category_id: 4)
+ArticleCategory.create(article_id: 5, category_id: 5)
+
+
+Vote.create(article_id: 6, user_id: 1)
+
+
+Article.create(author_id: 4, 
+  title: 'Spending time in nature can boost overall well-being, but how much exposure do we need? 
+  A new study concludes that 2 hours each week is enough to reap the benefits, 
+  though significant questions remain.In Western society, as overall interaction with nature slowly declines, scientists are exploring whether reconnecting with parks, 
+  woodlands, and beaches might benefit our general health and well-being.',
+image: 'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/325/325466/man-walking-dog.jpg?w=1155&h=1541')
+
+ArticleCategory.create(article_id: 6, category_id: 4)
+ArticleCategory.create(article_id: 6, category_id: 5)
+
+
+Vote.create(article_id: 6, user_id: 5)

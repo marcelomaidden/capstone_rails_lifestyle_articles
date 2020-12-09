@@ -8,4 +8,10 @@ module UserHelper
       end
     end.join.html_safe
   end
+
+  def logged_in?
+    return false if session[:current_user].nil?
+
+    true
+  end
 end

@@ -1,11 +1,16 @@
 class ArticlesController < ApplicationController
   before_action :find_categories, only: %i[new create]
   before_action :user_loggedin?, only: %i[update create new edit]
-  before_action :mine?, only: %i[edit update]
   before_action :find_article, only: %i[show edit update]
 
   def new
     @article = Article.new
+  end
+
+  def edit
+    return if Article.mine?(params[:id], session[:current_user]['id'])
+
+    redirect_to root_path, notice: 'User is not allowed to edit this article'
   end
 
   def create
@@ -42,14 +47,10 @@ class ArticlesController < ApplicationController
     articles_by_category
 
     articles_common
-
-    flash['notice'] = 'There are no articles yet' if Article.all.blank?
   end
 
   def search
-    @articles = Article.where('lower(title) LIKE ?', "%#{search_params[:title].downcase}%")
-    @articles = @articles.includes(:author, :article_categories, :categories).order(created_at: :desc)
-
+    @articles = Article.search(search_params[:title])
     if @articles.blank?
       redirect_to root_path, notice: 'Article not found'
     else
@@ -58,11 +59,7 @@ class ArticlesController < ApplicationController
   end
 
   def suggestions
-    v = Vote.select(:article_id).where(user_id: session[:current_user]['id']).includes(:article)
-    articles_category = ArticleCategory.where(article_id: v).includes(:article, :category)
-    categories = articles_category.pluck(:category_id)
-    @articles = Article.includes(:article_categories, :categories, :author)
-    @articles = @articles.where('article_categories.category_id': categories)
+    @articles = Vote.suggestions(session[:current_user]['id'])
 
     render 'suggestions'
   end
@@ -90,8 +87,11 @@ class ArticlesController < ApplicationController
 
     @category = Category.find(params[:category_id])
     @articles = @category.articles.most_recents.includes([:author])
-    redirect_to root_path, notice: 'There are no articles on this category yet' if @articles.blank?
-    render 'categories/articles' unless @articles.blank?
+    if @articles.blank?
+      redirect_to root_path, notice: 'There are no articles on this category yet'
+    else
+      render 'categories/articles'
+    end
   end
 
   def article_params
@@ -124,12 +124,5 @@ class ArticlesController < ApplicationController
     end
 
     redirect_to articles_path, notice: error if error.any?
-  end
-
-  def mine?
-    @article = Article.find(params[:id])
-    return false unless @article.author.id != session[:current_user]['id']
-
-    redirect_to root_path, notice: 'User is not allowed to edit this article'
   end
 end

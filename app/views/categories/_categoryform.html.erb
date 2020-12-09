@@ -1,0 +1,11 @@
+<div class = 'form w-50 mx-auto mt-5 bg-light p-3 rounded'>
+  <h1 class = 'd-flex justify-content-center'>Category</h1>
+  <%= form_for @category do |f| %>
+    <div class = 'errors'>
+      <%= display_errors(@category) %>
+    </div>
+    <%= f.text_field :name, class: 'form-control mt-2', placeHolder: 'Name' %>
+    <%= f.number_field :priority, class: 'form-control mt-2', placeHolder: 'Priority' %>
+    <%= f.submit class: 'btn btn-lg btn-submit text-dark btn-block mt-4'  %>
+  <% end %>
+</div>
