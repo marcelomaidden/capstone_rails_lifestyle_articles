@@ -3,11 +3,12 @@ require 'rails_helper'
 RSpec.describe ArticleCategory, type: :model do
   before :each do
     User.create(id: 1, name: 'Marcelo', username: 'marcelomaiden')
-    Article.create(id: 1,
-                   author_id: 1,
-                   title: 'My first article',
-                   text: 'This article was made in order to test the model integration',
-                   image: 'my image url')
+    Article.create(
+    id: 1,
+    author_id: 1,
+    title: 'My first article',
+    text: 'This article was made in order to test the model integration',
+    image: 'my image url')
 
     Category.create(id: 1, name: 'Beach', priority: 1)
   end
