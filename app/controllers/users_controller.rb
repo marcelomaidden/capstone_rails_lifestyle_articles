@@ -16,9 +16,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if !User.myself?(params[:id], session[:current_user]['id'])
-      redirect_to root_path, notice: 'Current user is not allowed to edit this user'
-    end
+    return if Article.mine?(params[:id], session[:current_user]['id'])
+
+    redirect_to root_path, notice: 'Current user is not allowed to edit this user'
   end
 
   def update

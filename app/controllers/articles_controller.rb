@@ -8,9 +8,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    if !Article.mine?(params[:id], session[:current_user]['id'])
-      redirect_to root_path, notice: 'User is not allowed to edit this article' 
-    end
+    return if Article.mine?(params[:id], session[:current_user]['id'])
+
+    redirect_to root_path, notice: 'User is not allowed to edit this article'
   end
 
   def create
@@ -47,7 +47,6 @@ class ArticlesController < ApplicationController
     articles_by_category
 
     articles_common
-
   end
 
   def search
