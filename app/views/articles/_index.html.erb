@@ -1,0 +1,7 @@
+<%= render 'top', article: most_voted %>
+<section class = 'articles'>
+  <% categories.each do |category| 
+  article = show_articles(category) %>
+    <%= show_articles(category) %>
+  <% end %>
+</section>

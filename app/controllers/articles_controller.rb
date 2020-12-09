@@ -48,7 +48,6 @@ class ArticlesController < ApplicationController
 
     articles_common
 
-    flash['notice'] = 'There are no articles yet' if Article.all.blank?
   end
 
   def search
@@ -89,8 +88,11 @@ class ArticlesController < ApplicationController
 
     @category = Category.find(params[:category_id])
     @articles = @category.articles.most_recents.includes([:author])
-    redirect_to root_path, notice: 'There are no articles on this category yet' if @articles.blank?
-    render 'categories/articles' unless @articles.blank?
+    if @articles.blank?
+      redirect_to root_path, notice: 'There are no articles on this category yet'
+    else
+      render 'categories/articles'
+    end
   end
 
   def article_params

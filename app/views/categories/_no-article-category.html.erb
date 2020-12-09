@@ -1,0 +1,30 @@
+<div class = "d-flex <%= count < 2 ? 'flex-row' : 'flex-row-reverse' %>">
+  <div class = "p-2 w-50"
+    style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+    rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+    no-repeat center/auto  url('<%= article.image %>')">
+  </div>
+  <div class = "p-2 position-relative w-50"
+  style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
+    rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
+    repeat center/1%  
+    url('')">
+    <ul class = 'd-flex list-unstyled'>
+        <li class = 'ml-2 orange-link'>
+          <%= link_to  category.name, category_articles_path(category.id), 
+        class: 'font-weight-bold' %>
+        </li>
+    </ul>
+    <div class = 'article-title-mini'>      
+      <h6 class = ' ml-2 mt-2 text-dark font-weight-bolder'>      
+      </h6>
+    </div>
+    <div>
+      <p class = 'ml-2 category-article-text'></p>
+      <p class = 'd-flex flex-column flex-md-row ml-2 category-article-text  read-more position-absolute'>
+        <span class = 'ml-2 author-name text-white font-weight-bolder'>          
+        </span>        
+      </p>
+    </div>
+  </div>
+</div>

@@ -4,15 +4,13 @@
   rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
   no-repeat center/110%  url('<%= article_image(article) %>') ">
       <div>
-        <% if ! article.blank? %>
-            <%= link_to  article.title,
-            article_path(article.id), 
-            class: 'article-title article-link position-absolute font-weight-bold' %>
-          <span class = 'article-text position-absolute text-white font-weight-bold'>
-            <%= truncate(article.text, length: 250) %>
-          </span>
-          <%= render 'article_buttons', article: article %>
-        <% end %>  
+          <%= link_to  article.title,
+          article_path(article.id), 
+          class: 'article-title article-link position-absolute font-weight-bold' %>
+        <span class = 'article-text position-absolute text-white font-weight-bold'>
+          <%= truncate(article.text, length: 250) %>
+        </span>
+        <%= render 'article_buttons', article: article %>
       </div>
     </article>
 </section>
