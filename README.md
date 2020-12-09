@@ -16,7 +16,7 @@ People can create their own articles and they have a page that suggests articles
 
 ## Live Demo
 
-[Lifestyle articles](https://shrouded-crag-57574.herokuapp.com/)
+[Lifestyle articles](https://lit-brushlands-34939.herokuapp.com/ )
 
 
 ## Getting Started
