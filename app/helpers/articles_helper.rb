@@ -6,7 +6,13 @@ module ArticlesHelper
   end
   
   def article_owner?(article)
-    return true if !session[:current_user].nil? && !article.nil? &&
+    return 'd-flex' if !session[:current_user].nil? && !article.nil? &&
       session[:current_user]['id'] == article.author.id 
+    'd-none'
+  end
+
+  def article_image(article)
+    return article.image if !article.blank?
+    ""
   end
 end

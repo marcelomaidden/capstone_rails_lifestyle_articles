@@ -3,7 +3,7 @@
           <div class = 'p-2 position-relative'
           style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
             rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 
-            no-repeat center/auto  url('<%= article.image %>')">
+            no-repeat center/auto  url('<%= article_image(article) %>')">
             <ul class = 'd-flex list-unstyled'>
                 <% article.categories.each do |category| %>
                   <li class = 'ml-2'>
