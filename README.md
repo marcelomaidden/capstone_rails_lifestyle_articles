@@ -3,6 +3,8 @@
 This project was presented as final project for the Rails Curriculum. It is a Lifestyle Article where people can apply filters by category and vote on their preferred articles.
 People can create their own articles and they have a page that suggests articles based on their votes.
 
+Built with Ruby on Rails framework and PostgreSQL database
+
 ![screenshot](./docs/screenshot.png)
 
 ## Built With
