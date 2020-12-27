@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   before_action :find_categories, only: %i[new create]
   before_action :user_loggedin?, only: %i[update create new edit]
   before_action :find_article, only: %i[show edit update]
+  before_action :validate_categories, only: %i[create update]
 
   def new
     @article = Article.new
@@ -104,6 +105,12 @@ class ArticlesController < ApplicationController
 
   def find_categories
     @categories = Category.all.order(:name)
+  end
+
+  def validate_categories
+    if article_params[:categories][0].blank?
+      redirect_to articles_path, notice: "Article not saved. Please add a category" unless article_params[:categories][1]
+    end
   end
 
   def find_article
