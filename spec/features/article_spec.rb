@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.feature 'Articles', type: :feature do
   before :each do
     User.create(id: 2, name: 'Marcelo', username: 'marcelomaidden')
-    Category.create(name: "Beach", priority: 1)
+    Category.create(name: 'Beach', priority: 1)
   end
 
   let :login do

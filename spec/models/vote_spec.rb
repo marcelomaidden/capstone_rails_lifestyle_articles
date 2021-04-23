@@ -5,7 +5,7 @@ RSpec.describe Vote, type: :model do
     User.create(id: 1, name: 'marcelo', username: 'marcelomaidden')
     Article.create(id: 1, author_id: 1, title: 'My first article',
                    text: 'This article was made in order to test the model integration',
-                   image: 'my image url')
+                   photo: Rack::Test::UploadedFile.new('spec/features/image.png', 'image/png'))
   end
 
   context 'Register a vote' do

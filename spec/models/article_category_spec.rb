@@ -8,7 +8,7 @@ RSpec.describe ArticleCategory, type: :model do
       author_id: 1,
       title: 'My first article',
       text: 'This article was made in order to test the model integration',
-      image: 'my image url'
+      photo: Rack::Test::UploadedFile.new('spec/features/image.png', 'image/png')
     )
 
     Category.create(id: 1, name: 'Beach', priority: 1)

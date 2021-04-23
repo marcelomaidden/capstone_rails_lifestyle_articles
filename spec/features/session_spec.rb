@@ -1,12 +1,9 @@
 require 'rails_helper'
+require_relative 'article_helper'
 
 RSpec.feature 'Session' do
   before :each do
-    User.create(id: 1, name: 'Marcelo', username: 'marcelomaidden')
-    Article.create(id: 1, author_id: 1, title: 'First article',
-                   text: 'Beautiful article made by Marcelo in order to test the code',
-                   image: 'url for the image')
-    ArticleCategory.create(article_id: 1, category_id: 1)
+    article_basic
   end
 
   let :login do
@@ -32,6 +29,6 @@ RSpec.feature 'Session' do
 
     first('a', text: 'LOG-OUT').click
 
-    expect(page).to have_text 'LOG-IN'
+    expect(page).to have_text 'SIGN-IN'
   end
 end

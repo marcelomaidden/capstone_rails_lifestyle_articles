@@ -11,7 +11,7 @@ RSpec.describe Article, type: :model do
     it 'Create a valid article' do
       article = Article.new(author_id: 1, title: 'My first article',
                             text: 'This article was made in order to test the model integration',
-                            image: 'my image url')
+                            photo: Rack::Test::UploadedFile.new('spec/features/image.png', 'image/png'))
 
       expect(article).to be_valid
     end
@@ -19,14 +19,14 @@ RSpec.describe Article, type: :model do
     it "Validation error when it doesn't have a title" do
       article = Article.new(author_id: 1,
                             text: 'This article was made in order to test the model integration',
-                            image: 'my image url')
+                            photo: Rack::Test::UploadedFile.new('spec/features/image.png', 'image/png'))
 
       expect(article).to_not be_valid
     end
 
     it "Validation error when it doesn't have a text" do
       article = Article.new(author_id: 1, title: 'My first article',
-                            image: 'my image url')
+                            photo: Rack::Test::UploadedFile.new('spec/features/image.png', 'image/png'))
 
       expect(article).to_not be_valid
     end
@@ -34,7 +34,7 @@ RSpec.describe Article, type: :model do
     it "Validation error when it doesn't have an author" do
       article = Article.new(title: 'My first article',
                             text: 'This article was made in order to test the model integration',
-                            image: 'my image url')
+                            photo: Rack::Test::UploadedFile.new('spec/features/image.png', 'image/png'))
 
       expect(article).to_not be_valid
     end
@@ -52,7 +52,7 @@ RSpec.describe Article, type: :model do
         My first articleMy first articleMy first article
         My first article',
                             text: 'This article was made in order to test the model integration',
-                            image: 'my image url')
+                            photo: Rack::Test::UploadedFile.new('spec/features/image.png', 'image/png'))
 
       expect(article).to_not be_valid
     end
@@ -61,7 +61,7 @@ RSpec.describe Article, type: :model do
       article = Article.new(author_id: 1,
                             title: 'My first article',
                             text: 'This article ',
-                            image: 'my image url')
+                            photo: Rack::Test::UploadedFile.new('spec/features/image.png', 'image/png'))
 
       expect(article).to_not be_valid
     end

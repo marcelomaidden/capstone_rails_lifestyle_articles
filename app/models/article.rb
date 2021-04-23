@@ -1,5 +1,5 @@
 class Article < ApplicationRecord
-  validates :author_id, presence: true
+  validates :author_id, :photo, presence: true
   validates :title, presence: true, length: { minimum: 10, maximum: 100 }
   validates :text, presence: true, length: { minimum: 50, maximum: 1000 }
 

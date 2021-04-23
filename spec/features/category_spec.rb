@@ -7,7 +7,7 @@ RSpec.feature 'Categories', type: :feature do
     Category.create(id: 2, name: 'Beach', priority: 2)
     Article.create(id: 1, author_id: 1, title: 'First article',
                    text: 'Beautiful article made by Marcelo in order to test the code',
-                   image: 'url for the image')
+                   photo: Rack::Test::UploadedFile.new('spec/features/image.png', 'image/png'))
     ArticleCategory.create(article_id: 1, category_id: 1)
   end
 
