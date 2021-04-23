@@ -18,7 +18,7 @@ Built with Ruby on Rails framework and PostgreSQL database
 
 ## Live Demo
 
-[Lifestyle articles](https://lit-brushlands-34939.herokuapp.com/ )
+[Lifestyle articles](https://lifestyle-articles.herokuapp.com/)
 
 
 ## Getting Started
