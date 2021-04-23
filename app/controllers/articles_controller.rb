@@ -108,9 +108,10 @@ class ArticlesController < ApplicationController
   end
 
   def validate_categories
-    if article_params[:categories][0].blank?
-      redirect_to articles_path, notice: "Article not saved. Please add a category" unless article_params[:categories][1]
-    end
+    return unless article_params[:categories][0].blank? && !(article_params[:categories][1])
+
+    redirect_to articles_path,
+                notice: 'Article not saved. Please add a category'
   end
 
   def find_article
