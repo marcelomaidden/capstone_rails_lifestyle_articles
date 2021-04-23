@@ -13,7 +13,7 @@ module ArticlesHelper
   end
 
   def article_image(article)
-    return article.image unless article.blank?
+    return url_for(article.photo) unless article.blank?
 
     ''
   end

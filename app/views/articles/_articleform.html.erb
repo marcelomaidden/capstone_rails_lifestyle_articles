@@ -7,7 +7,12 @@
     <%= f.text_field :title, class: 'form-control mt-2', placeHolder: 'title' %>
     <%= f.text_area :text, cols: 20, rows: 10, 
     class: 'form-control mt-2', placeHolder: 'text' %>
-    <%= f.text_field :image, class: 'form-control mt-2', placeHolder: 'image url' %>
+    <%
+=begin%>
+ <%= f.text_field :image, class: 'form-control mt-2', placeHolder: 'image url' %> 
+<%
+=end%>
+    <%= f.file_field :photo %>
     <%= f.select(:categories, @categories.collect {|c| [ c.name, c.id ] }, 
     { :prompt => "Please select one or more categories"}, 
     { :multiple => true, :size => 5, :class => 'form-control mt-2'  }) %>

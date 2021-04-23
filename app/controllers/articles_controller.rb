@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(title: article_params['title'], text: article_params['text'],
-                           author_id: session[:current_user]['id'], image: article_params['image'])
+                           author_id: session[:current_user]['id'], photo: article_params['photo'])
 
     if @article.save
       add_categories
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
   def update
     @article.title = article_params[:title]
     @article.text = article_params[:text]
-    @article.image = article_params[:image]
+    @article.photo = article_params[:photo]
 
     if @article.save
       @article.categories.delete_all
@@ -96,7 +96,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :text, :image, categories: [])
+    params.require(:article).permit(:title, :text, :photo, categories: [])
   end
 
   def search_params
