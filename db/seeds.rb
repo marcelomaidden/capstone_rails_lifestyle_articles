@@ -30,7 +30,7 @@ Article.create(author_id:1, title: 'Maldives, the best island for honeymoon',
   landscapes that match the picture of our dream honeymoon location. This is where the newly-weds 
   get to enjoy the privileges’ of all the comforts of the modern world along with the privacy 
   from the bustling modern cities.',
-  image: 'https://visitmaldives.s3.amazonaws.com/24YE1Yey/c/s5fdebdc-shareable_image.jpg')
+  photo: Rack::Test::UploadedFile.new("#{Rails.root}/db/seeds_images/maldives.jpg", 'image/png'))
 
 ArticleCategory.create(article_id: 1, category_id: 1)
 ArticleCategory.create(article_id:2, category_id: 2)
@@ -49,7 +49,7 @@ Article.create(author_id:2, title: 'Male Island: Best Island In Maldives',
    Though it is often dismissed as a destination with little sightseeing options, 
    it must not be missed. For it is here that you experience the true
    Maldivian culture and it is the best island to stay in Maldives for honeymoon.',
-   image: 'https://img.traveltriangle.com/blog/wp-content/tr:w-700,h-400/uploads/2017/05/shutterstock-567919321-kw-220517-An-aerial-shot-of-the-Male-island-in-Maldives.jpg')
+   photo: Rack::Test::UploadedFile.new("#{Rails.root}/db/seeds_images/male_islands.jpg", 'image/png'))
 
 ArticleCategory.create(article_id:2, category_id: 1)
 ArticleCategory.create(article_id:2, category_id: 2)
@@ -65,7 +65,7 @@ Article.create(author_id: 3, title: 'Fihalhohi Island: Beauty And Romance',
   its Palm Groove, Aeolus Dive Centre, and Anggerik Spa make the Fihalhohi Island Resort a 
   splendid stay option. And the pristine beaches on the island that shaded by coconut palm trees 
   are truly romantic.',
-  image: 'https://img.traveltriangle.com/blog/wp-content/uploads/2017/05/shutterstock-130167065-kw-220517-A-couple-on-a-jetty-in-front-of-the-overwater-properties-on-an-island-resort-in-Maldives.jpg'
+  photo: Rack::Test::UploadedFile.new("#{Rails.root}/db/seeds_images/fihalhohi.jpg", 'image/png')
 )
 
 ArticleCategory.create(article_id: 3, category_id: 1)
@@ -83,7 +83,7 @@ text: 'You have met your soulmate, and the special day in both of your life is t
  from the mayhem in which both life partners get to spend time with each other. 
  There are various destinations suitable 
 for a honeymoon in Arunachal Pradesh that makes this state best for a romantic escapade.',
-image: 'https://img.traveltriangle.com/blog/wp-content/uploads/2020/01/cover-Honeymoon-in-Arunachal-Pradesh_10th-jan.jpg')
+photo: Rack::Test::UploadedFile.new("#{Rails.root}/db/seeds_images/honeymoon.jpg", 'image/png'))
 
 ArticleCategory.create(article_id: 4, category_id: 2)
 ArticleCategory.create(article_id: 4, category_id: 4)
@@ -102,7 +102,7 @@ rights just as human beings have rights. Rights of Nature is about balancing wha
   It is the holistic recognition that all life, all ecosystems on our planet are deeply intertwined.
 
 Rather than treating nature as property under the law, rights of nature acknowledges that nature in all its life forms has the right to exist, persist, maintain and regenerate its vital cycles.',
-image: 'https://therightsofnature.org/wp-content/uploads/2018/01/turkey-3048299_1920-1366x550.jpg')
+photo: Rack::Test::UploadedFile.new("#{Rails.root}/db/seeds_images/turkey.jpg", 'image/png'))
 
 ArticleCategory.create(article_id: 5, category_id: 4)
 ArticleCategory.create(article_id: 5, category_id: 5)
@@ -120,7 +120,7 @@ rights just as human beings have rights. Rights of Nature is about balancing wha
   It is the holistic recognition that all life, all ecosystems on our planet are deeply intertwined.
 
 Rather than treating nature as property under the law, rights of nature acknowledges that nature in all its life forms has the right to exist, persist, maintain and regenerate its vital cycles.',
-image: 'https://therightsofnature.org/wp-content/uploads/2019/05/IMG_8663.jpg')
+photo: Rack::Test::UploadedFile.new("#{Rails.root}/db/seeds_images/nature.jpg", 'image/png'))
 
 ArticleCategory.create(article_id: 5, category_id: 4)
 ArticleCategory.create(article_id: 5, category_id: 5)
@@ -134,7 +134,7 @@ Article.create(author_id: 4,
   A new study concludes that 2 hours each week is enough to reap the benefits, 
   though significant questions remain.In Western society, as overall interaction with nature slowly declines, scientists are exploring whether reconnecting with parks, 
   woodlands, and beaches might benefit our general health and well-being.',
-image: 'https://i0.wp.com/cdn-prod.medicalnewstoday.com/content/images/articles/325/325466/man-walking-dog.jpg?w=1155&h=1541')
+photo: Rack::Test::UploadedFile.new("#{Rails.root}/db/seeds_images/man-walking-dog.jpg", 'image/png'))
 
 ArticleCategory.create(article_id: 6, category_id: 4)
 ArticleCategory.create(article_id: 6, category_id: 5)
