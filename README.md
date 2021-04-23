@@ -54,6 +54,9 @@ Setup database with:
    rails db:seed
 ```
 
+This project uses Cloudinary to deploy photos. 
+Please, add your `cloudinary.yml` to config folder
+
 ### Usage
 
 Start server with:
@@ -113,6 +116,7 @@ Finally run the command to create your database and tables on Heroku's server
 - Font Awesome
 - W3schools
 - Twitter Boostrap
+- Cloudinary
 
 ## 🤝 Contributing
 
