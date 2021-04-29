@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: marcelomaidden
+  api_key: '965417938122161'
+  api_secret: 6Ylg4pyevfiMy4FPvTKUsH0-jzI
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: marcelomaidden
+  api_key: '965417938122161'
+  api_secret: 6Ylg4pyevfiMy4FPvTKUsH0-jzI
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: marcelomaidden
+  api_key: '965417938122161'
+  api_secret: 6Ylg4pyevfiMy4FPvTKUsH0-jzI
+  enhance_image_tag: true
+  static_file_support: false
