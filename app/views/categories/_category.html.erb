@@ -4,8 +4,6 @@
   </div>
   <div class="card-body">
     <p class="card-text">Priority: <%= category.priority %></p>
-    <% if !session[:current_user].nil?  %>
-      <%= link_to  "Edit", edit_category_path(category) %>
-    <% end %>
+    <%= edit_category?(category) %>
   </div>
 </div>

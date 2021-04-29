@@ -1,4 +1,4 @@
-<div class = "d-flex <%= count < 2 ? 'flex-row' : 'flex-row-reverse' %>">
+<div class = "d-flex <%= reversed?(count) %>">
   <div class = "p-2 w-50"
     style = "background: linear-gradient(to bottom, rgba(0,0,50,0), rgba(0,0,50,0), 
     rgba(0,0,50,0), rgba(0,0,50,.3), rgba(0,0,50,1)), 

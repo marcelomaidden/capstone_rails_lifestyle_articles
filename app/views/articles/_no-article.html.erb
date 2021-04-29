@@ -4,9 +4,7 @@
   </div>
   <div class="card-body">
     <p class="card-text">
-      <% if !session[:current_user].nil?  %>
-        <%= link_to  "Create you own article", new_article_path %>
-      <% end %>      
+    <%= allowed_to_create? %>    
     </p>    
   </div>
 </div>
