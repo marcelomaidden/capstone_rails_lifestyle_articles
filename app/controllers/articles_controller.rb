@@ -88,6 +88,7 @@ class ArticlesController < ApplicationController
 
     @category = Category.find(params[:category_id])
     @articles = @category.articles.most_recents.includes([:author])
+    @articles = @articles.includes(photo_attachment: :blob)
     if @articles.blank?
       redirect_to root_path, notice: 'There are no articles on this category yet'
     else

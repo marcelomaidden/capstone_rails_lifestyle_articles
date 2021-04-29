@@ -12,10 +12,10 @@ module SessionHelper
       </li>".html_safe
     end
     "<li class = 'session-menu ul-session '>
-      #{ link_to session[:current_user]['name'], user_path(session[:current_user]['id']) }
+      #{link_to session[:current_user]['name'], user_path(session[:current_user]['id'])}
     </li>
     <li class = 'session-menu text-nowrap'>
-      #{link_to  'LOG-OUT', logout_path}
+      #{link_to 'LOG-OUT', logout_path}
     </li>".html_safe
   end
 end

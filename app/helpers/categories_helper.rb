@@ -6,9 +6,7 @@ module CategoriesHelper
   end
 
   def edit_category?(category)
-    unless session[:current_user].nil?
-      return link_to 'Edit', edit_category_path(category)
-    end
+    return link_to 'Edit', edit_category_path(category) unless session[:current_user].nil?
 
     ''
   end

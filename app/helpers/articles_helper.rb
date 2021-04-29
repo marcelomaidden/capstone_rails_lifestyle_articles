@@ -39,9 +39,7 @@ module ArticlesHelper
   end
 
   def allowed_to_create?
-    unless session[:current_user].nil?
-      return link_to 'Create you own article', new_article_path
-    end
+    return link_to 'Create you own article', new_article_path unless session[:current_user].nil?
 
     ''
   end
