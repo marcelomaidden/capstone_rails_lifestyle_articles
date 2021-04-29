@@ -6,8 +6,6 @@
   </div>
   <div class="card-body">
     <p class="card-text"><%= article.text %></p>
-    <% if !session[:current_user].nil? && session[:current_user]['id'] == article.author.id %>
-      <%= link_to  "Edit", edit_article_path(article) %>
-    <% end %>
+    <%= edit_article?(article) %>
   </div>
 </div>

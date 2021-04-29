@@ -14,4 +14,12 @@ module UserHelper
 
     true
   end
+
+  def edit_user?(user)
+    if !session[:current_user].nil? && session[:current_user]['id'] == user.id
+      return link_to 'Edit', edit_user_path(user).html_safe
+    end
+
+    flash[:notice] = 'User not allowed edit'
+  end
 end

@@ -4,7 +4,7 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-#Ignores cloudinary key on development
+# Ignore cloudinary.yml development
 cloudinary.yml
 # Ignore bundler config.
 /.bundle
